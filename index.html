@@ -1,0 +1,1354 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Презентация АС «ПУСК» — Мобильное приложение</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/demo4.css">
+
+</head>
+
+<body>
+
+    <!-- Progress Line -->
+    <div class="progress-indicator" id="progress"></div>
+
+    <!-- Background Ambience -->
+    <div class="bg-decoration bg-blob-1"></div>
+    <div class="bg-decoration bg-blob-2"></div>
+
+    <div id="presentation-container">
+
+        <!-- Header Mockup (Visual consistency) -->
+        <div class="dashboard-header-mock">
+            <div class="logo-area">
+                <!-- LOGO INSERTION POINT -->
+                <img src="logo.png" alt="Logo" class="logo-image" onerror="this.style.display='none'">
+                <span>АС «ПУСК»</span>
+            </div>
+            <div class="text-sm font-medium text-gray-400">Мобильная версия v1.0</div>
+        </div>
+
+        <!-- СЛАЙД 1: Титульный Dashboard -->
+<div class="slide active" data-step="1">
+    <div class="max-w-5xl mx-auto w-full grid grid-cols-2 gap-12 items-center">
+        <div class="fade-in-up">
+            <div
+                class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-sm font-semibold mb-6 border border-blue-100">
+                <span class="w-2 h-2 bg-blue-600 rounded-full mr-2"></span>
+                Онлайн-версия
+            </div>
+            <h1 style="line-height: 1.15;">Мобильное<br><span class="text-primary">приложение<br><span
+                        style="display: inline-block; margin-top: 0.15em;">ПУСК</span></span></h1>
+            <p class="text-xl text-gray-500 mt-6 mb-10 max-w-md">Инструмент для работы инспектора непосредственно на
+                объекте строительного
+                контроля.</p>
+            <div class="flex gap-4">
+                <div class="card-step p-5 flex items-center gap-4 w-fit"
+                    style="background: linear-gradient(135deg, #ffffff 0%, #f0fdf4 100%);">
+                    <div
+                        class="w-12 h-12 rounded-xl bg-gradient-to-br from-green-400 to-emerald-500 flex items-center justify-center text-white shadow-lg shadow-green-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xs text-gray-400 font-semibold uppercase tracking-wider">Статус</span>
+                        <span class="text-base font-bold text-gray-800">Готов к работе</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="fade-in-up delay-200 flex justify-center relative">
+            <!-- Abstract Dashboard UI representation behind phone -->
+            <div
+                class="absolute -right-10 top-10 w-64 h-80 bg-white rounded-2xl shadow-lg opacity-40 transform rotate-6 border border-gray-100">
+            </div>
+            <div
+                class="absolute -right-4 top-20 w-64 h-80 bg-white rounded-2xl shadow-lg opacity-60 transform rotate-3 border border-gray-100">
+            </div>
+
+            <!-- Phone with Real Screenshot (Slide 1) -->
+            <div class="phone-mockup" style="height: 540px; border-width: 6px;">
+                <div class="phone-notch"></div>
+                <!-- IMPORTANT: Replace 'screen_main.png' with your file name -->
+                <img src="screen_main.png" alt="Главный экран приложения"
+                    onerror="this.src='https://placehold.co/375x812?text=Скриншот+1'">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- СЛАЙД 2: Формат встречи + VIDEO -->
+<div class="slide" data-step="2">
+    <div class="grid-2 max-w-6xl mx-auto w-full">
+        <div>
+            <h2>Формат встречи</h2>
+            <p class="mb-8">Короткая вводная часть перед живой демонстрацией сценариев.</p>
+
+            <div class="space-y-3">
+                <div class="card-step flex items-center gap-3">
+                    <div
+                        class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600 font-bold text-sm">
+                        01</div>
+                    <div>
+                        <h3 class="mb-0 text-base">Обзор возможностей</h3>
+                        <p class="text-sm m-0">Ключевые функции и назначение</p>
+                    </div>
+                </div>
+                <div class="card-step flex items-center gap-3">
+                    <div
+                        class="w-10 h-10 rounded-lg bg-blue-50 flex items-center justify-center text-blue-600 font-bold text-sm">
+                        02</div>
+                    <div>
+                        <h3 class="mb-0 text-base">Типовые сценарии</h3>
+                        <p class="text-sm m-0">Путь инспектора: от проверки до формирования МКП</p>
+                    </div>
+                </div>
+                <div class="card-step flex items-center gap-3">
+                    <div
+                        class="w-10 h-10 rounded-lg bg-green-50 flex items-center justify-center text-green-600 font-bold text-sm">
+                        Live</div>
+                    <div>
+                        <h3 class="mb-0 text-base">Живое демо</h3>
+                        <p class="text-sm m-0">Демонстрация на реальном планшете</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Phone Mockup with Video Screencast -->
+        <div class="flex justify-center items-center relative">
+            <!-- Decorative blob behind -->
+            <div class="absolute inset-0 bg-blue-100 rounded-full opacity-30 blur-3xl transform scale-75"></div>
+
+            <div class="phone-mockup" style="height: 540px; border-width: 6px;">
+                <div class="phone-notch"></div>
+                <!-- Video Element: Replace 'screencast.mp4' with your video file -->
+                <div class="w-full h-full bg-black relative group">
+                    <video src="screencast.mp4" poster="https://placehold.co/375x812?text=Video+Preview"
+                        class="w-full h-full object-cover" autoplay loop muted playsinline>
+                        Ваш браузер не поддерживает видео.
+                    </video>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- СЛАЙД 3: Этапность - С МОКАПОМ -->
+<div class="slide" data-step="3">
+    <div class="grid grid-cols-2 gap-12 items-center max-w-6xl mx-auto w-full">
+        <!-- Phone Mockup -->
+        <div class="flex justify-center">
+            <div class="phone-mockup" style="height: 520px;">
+                <div class="phone-notch"></div>
+                <img src="screen_roadmap.png" alt="Главный экран"
+                    onerror="this.src='https://placehold.co/375x812/eef2ff/4661eb?text=📱+Приложение'">
+            </div>
+        </div>
+        <!-- Content -->
+        <div>
+            <h2>План развития продукта</h2>
+            <!-- Этап 1 Card -->
+            <div class="card-step relative overflow-hidden border-2 border-blue-100 mb-3" style="padding: 1rem;">
+                <div class="absolute top-0 left-0 w-full h-1 bg-blue-500"></div>
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-sm font-semibold m-0">Этап 1 (Сейчас)</h3>
+                    <span class="px-2 py-0.5 bg-green-100 text-green-700 rounded-full text-xs font-bold">Готово</span>
+                </div>
+                <ul class="space-y-1 m-0 p-0" style="list-style: none;">
+                    <li class="flex items-center text-xs"><svg class="w-3.5 h-3.5 mr-1.5 text-blue-500" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>Онлайн версия</li>
+                    <li class="flex items-center text-xs"><svg class="w-3.5 h-3.5 mr-1.5 text-blue-500" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>Проверки и нарушения</li>
+                    <li class="flex items-center text-xs"><svg class="w-3.5 h-3.5 mr-1.5 text-blue-500" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>Фотофиксация</li>
+                    <li class="flex items-center text-xs"><svg class="w-3.5 h-3.5 mr-1.5 text-blue-500" fill="none"
+                            stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7">
+                            </path>
+                        </svg>Метки на чертежах</li>
+                </ul>
+            </div>
+            <!-- Этап 2 Card -->
+            <div class="card-step bg-gray-50 border border-dashed border-gray-300" style="padding: 1rem;">
+                <div class="flex justify-between items-start mb-2">
+                    <h3 class="text-sm font-semibold text-gray-500 m-0">Этап 2 (Будущее)</h3>
+                    <span class="px-2 py-0.5 bg-gray-200 text-gray-500 rounded-full text-xs font-bold">Скоро</span>
+                </div>
+                <ul class="space-y-1 text-gray-400 m-0 p-0" style="list-style: none;">
+                    <li class="flex items-center text-xs"><span
+                            class="w-1.5 h-1.5 mr-1.5 bg-gray-300 rounded-full"></span>Оффлайн версия</li>
+                    <li class="flex items-center text-xs"><span
+                            class="w-1.5 h-1.5 mr-1.5 bg-gray-300 rounded-full"></span>Синхронизация данных</li>
+                    <li class="flex items-center text-xs"><span
+                            class="w-1.5 h-1.5 mr-1.5 bg-gray-300 rounded-full"></span>Умные справочники</li>
+                    <li class="flex items-center text-xs"><span
+                            class="w-1.5 h-1.5 mr-1.5 bg-gray-300 rounded-full"></span>ИИ-помощник</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- СЛАЙД 4: Для чего создано - С МОКАПОМ -->
+<div class="slide" data-step="4">
+    <div class="grid grid-cols-2 gap-12 items-center max-w-6xl mx-auto w-full">
+        <div>
+            <h2>Философия мобильного приложения</h2>
+            <div class="space-y-4">
+                <div class="card-step p-5 flex gap-4 items-center hover:shadow-hover">
+                    <div
+                        class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                            </path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-base mb-1">Работа «в поле»</h3>
+                        <p class="text-sm m-0">Инспектор не привязан к компьютеру. Все действия на месте
+                            осмотра конструкций.</p>
+                    </div>
+                </div>
+                <div class="card-step p-5 flex gap-4 items-center hover:shadow-hover">
+                    <div
+                        class="w-12 h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-base mb-1">Экономия времени</h3>
+                        <p class="text-sm m-0">Данные попадают в систему моментально. Без двойной работы.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Phone Mockup -->
+        <div class="flex justify-center">
+            <div class="phone-mockup" style="height: 520px;">
+                <div class="phone-notch"></div>
+                <img src="screen_field_work.png" alt="Работа в поле"
+                    onerror="this.src='https://placehold.co/375x812/eef2ff/4661eb?text=📱+В+поле'">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- СЛАЙД 5: НЕ заменяет -->
+        <div class="slide" data-step="5">
+            <h2 class="text-center mb-12">Экосистема АС «ПУСК»</h2>
+            <div class="max-w-5xl mx-auto w-full grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Web Card -->
+                <div class="card-step flex flex-col items-center text-center p-8 bg-gray-50 border border-gray-200">
+                    <div
+                        class="w-16 h-16 bg-white rounded-2xl shadow-sm flex items-center justify-center mb-6 text-gray-400">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-gray-900">Веб-версия</h3>
+                    <p class="text-sm text-gray-500 mb-6">Администрирование объектов, подписание, сложные процессы
+                        согласования.
+                    </p>
+                    <div class="w-full bg-white rounded-lg p-2 shadow-inner border border-gray-100 h-24">
+                        <!-- abstract UI -->
+                        <div class="flex gap-2 mb-2">
+                            <div class="w-1/4 h-2 bg-gray-100 rounded"></div>
+                            <div class="w-1/4 h-2 bg-gray-100 rounded"></div>
+                        </div>
+                        <div class="space-y-1">
+                            <div class="w-full h-1 bg-gray-50 rounded"></div>
+                            <div class="w-full h-1 bg-gray-50 rounded"></div>
+                            <div class="w-full h-1 bg-gray-50 rounded"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mobile Card -->
+                <div
+                    class="card-step flex flex-col items-center text-center p-8 border-2 border-blue-100 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 p-2 bg-blue-600 text-white rounded-bl-xl text-xs font-bold">
+                        Удобство
+                    </div>
+                    <div
+                        class="w-16 h-16 bg-blue-600 rounded-2xl shadow-lg shadow-blue-200 flex items-center justify-center mb-6 text-white">
+                        <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-blue-900">Мобильное приложение</h3>
+                    <p class="text-sm text-gray-500 mb-6">Сбор фактов, фотофиксация, оперативная работа.</p>
+                    <div class="w-32 bg-gray-50 rounded-xl border border-gray-200 h-24 mx-auto p-2">
+                        <div class="w-full h-full bg-white rounded shadow-sm border border-gray-100"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+<!-- СЛАЙД 6: Обзор возможностей - ГАЛЕРЕЯ МОКАПОВ -->
+<div class="slide" data-step="6">
+    <h2 class="mb-4 text-center" style="margin-top: -5rem; position: relative; z-index: 100;">Функциональные модули
+    </h2>
+    <div class="flex justify-center items-end gap-10 max-w-7xl mx-auto" style="margin-top: 2rem;">
+        <!-- Phone 1 - Объекты -->
+        <div class="flex flex-col items-center">
+            <div class="phone-mockup" style="width: 260px; height: 520px; border-width: 7px; border-radius: 36px;">
+                <div class="phone-notch" style="width: 100px; height: 22px;"></div>
+                <img src="screen_objects_list.png" alt="Список объектов"
+                    onerror="this.src='https://placehold.co/375x812/f8fafc/94a3b8?text=Объекты'">
+            </div>
+            <div class="mt-4 text-center">
+                <div class="text-base font-bold text-gray-800">Объекты</div>
+                <div class="text-sm text-gray-400">Реестр ОСК</div>
+            </div>
+        </div>
+        <!-- Phone 2 - Проверки (центральный, крупнее) -->
+        <div class="flex flex-col items-center z-10">
+            <div class="phone-mockup" style="width: 300px; height: 600px; border-width: 8px; border-radius: 40px;">
+                <div class="phone-notch" style="width: 120px; height: 25px;"></div>
+                <img src="screen_checks_list.png" alt="Список проверок"
+                    onerror="this.src='https://placehold.co/375x812/eef2ff/4661eb?text=Проверки'">
+            </div>
+            <div class="mt-4 text-center">
+                <div class="text-lg font-bold text-blue-600">Проверки</div>
+                <div class="text-sm text-gray-400">Реестр проверок</div>
+            </div>
+        </div>
+        <!-- Phone 3 - Нарушения -->
+        <div class="flex flex-col items-center">
+            <div class="phone-mockup" style="width: 260px; height: 520px; border-width: 7px; border-radius: 36px;">
+                <div class="phone-notch" style="width: 100px; height: 22px;"></div>
+                <img src="screen_violations_list.png" alt="Список нарушений"
+                    onerror="this.src='https://placehold.co/375x812/fef2f2/ef4444?text=Нарушения'">
+            </div>
+            <div class="mt-4 text-center">
+                <div class="text-base font-bold text-gray-800">Нарушения</div>
+                <div class="text-sm text-gray-400">Реестр нарушений</div>
+            </div>
+        </div>
+    </div>
+    <!-- Мини-метки модулей -->
+    <div class="flex justify-center gap-3 mt-10 flex-wrap max-w-4xl mx-auto">
+        <span
+            class="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-600 shadow-sm border border-gray-200 hover:border-blue-400 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">📍
+            Планы и чертежи</span>
+        <span
+            class="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-600 shadow-sm border border-gray-200 hover:border-blue-400 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">📄
+            Документы</span>
+        <span
+            class="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-600 shadow-sm border border-gray-200 hover:border-blue-400 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">📷
+            Фотоматериалы</span>
+        <span
+            class="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-600 shadow-sm border border-gray-200 hover:border-blue-400 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">🧩
+            Виджеты</span>
+        <span
+            class="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-600 shadow-sm border border-gray-200 hover:border-blue-400 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">🔔
+            Уведомления</span>
+        <span
+            class="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-600 shadow-sm border border-gray-200 hover:border-blue-400 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">📁
+            Файлы</span>
+        <span
+            class="px-4 py-2 bg-white rounded-full text-sm font-medium text-gray-600 shadow-sm border border-gray-200 hover:border-blue-400 hover:shadow-lg hover:-translate-y-1 transition-all duration-300 cursor-pointer">🔄
+            Замещение</span>
+    </div>
+</div>
+<!-- СЛАЙД 7: Путь инспектора - ROADMAP -->
+<div class="slide" data-step="7">
+    <div class="w-full h-full relative overflow-hidden px-6 py-4">
+        <h2 class="text-center mb-2 relative z-50" style="font-size: 2rem; margin-top: 6.5rem;">Путь инспектора в
+            мобильном приложении</h2>
+
+        <!-- SVG Background -->
+        <svg class="absolute inset-0 w-full h-full pointer-events-none z-10" viewBox="0 0 1400 700"
+            preserveAspectRatio="xMidYMid meet">
+            <defs>
+                <linearGradient id="pathGrad7" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#22d3ee" />
+                    <stop offset="25%" stop-color="#6366f1" />
+                    <stop offset="50%" stop-color="#ec4899" />
+                    <stop offset="75%" stop-color="#f59e0b" />
+                    <stop offset="100%" stop-color="#10b981" />
+                </linearGradient>
+                <linearGradient id="fadeLeft" x1="100%" y1="0%" x2="0%" y2="0%">
+                    <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.5" />
+                    <stop offset="100%" stop-color="#22d3ee" stop-opacity="0" />
+                </linearGradient>
+                <linearGradient id="fadeRight" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#6366f1" stop-opacity="0.5" />
+                    <stop offset="100%" stop-color="#6366f1" stop-opacity="0" />
+                </linearGradient>
+                <linearGradient id="fadeLeft2" x1="100%" y1="0%" x2="0%" y2="0%">
+                    <stop offset="0%" stop-color="#ec4899" stop-opacity="0.5" />
+                    <stop offset="100%" stop-color="#ec4899" stop-opacity="0" />
+                </linearGradient>
+                <linearGradient id="fadeRight2" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.5" />
+                    <stop offset="100%" stop-color="#f59e0b" stop-opacity="0" />
+                </linearGradient>
+                <filter id="glowPath">
+                    <feGaussianBlur stdDeviation="2" result="blur" />
+                    <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+            </defs>
+
+            <!-- Smooth Snake Path -->
+            <path
+                d="M 700 60 C 700 85, 650 100, 650 125 C 650 150, 750 165, 750 190 C 750 215, 650 230, 650 255 C 650 280, 750 295, 750 320 C 750 345, 650 360, 650 385 C 650 410, 750 425, 750 450 C 750 475, 650 490, 650 515 C 650 540, 700 555, 700 580"
+                stroke="url(#pathGrad7)" stroke-width="4" fill="none" stroke-linecap="round" filter="url(#glowPath)" />
+
+            <!-- Fading connections -->
+            <path d="M 650 125 Q 500 125, 380 180" stroke="url(#fadeLeft)" stroke-width="1.5" fill="none" />
+            <path d="M 750 190 Q 900 190, 1020 140" stroke="url(#fadeRight)" stroke-width="1.5" fill="none" />
+            <path d="M 650 385 Q 500 385, 380 480" stroke="url(#fadeLeft2)" stroke-width="1.5" fill="none" />
+            <path d="M 750 450 Q 900 450, 1020 530" stroke="url(#fadeRight2)" stroke-width="1.5" fill="none" />
+        </svg>
+
+        <!-- Phones - positioned at the end of connection lines -->
+        <!-- Left top: line ends at (380, 180) in SVG viewBox 1400x700 -->
+        <div class="absolute top-[18%] left-[22%] w-[160px] z-20 roadmap-phone-left">
+            <div class="phone-mockup" style="width: 100%; height: 280px;">
+                <img src="screen_auth.png" alt="Авторизация"
+                    onerror="this.src='https://placehold.co/375x812/1e293b/22d3ee?text=Авторизация'">
+            </div>
+        </div>
+        <!-- Right top: line ends at (1020, 140) => ~27% from right -->
+        <div class="absolute top-[14%] right-[22%] w-[160px] z-20 roadmap-phone-right">
+            <div class="phone-mockup" style="width: 100%; height: 280px;">
+                <img src="screen_objects.png" alt="Выбор объекта"
+                    onerror="this.src='https://placehold.co/375x812/eef2ff/6366f1?text=Выбор+объекта'">
+            </div>
+        </div>
+        <!-- Left bottom: line ends at (380, 480) => ~31% from bottom -->
+        <div class="absolute bottom-[22%] left-[22%] w-[160px] z-20 roadmap-phone-left">
+            <div class="phone-mockup" style="width: 100%; height: 280px;">
+                <img src="screen_violation.png" alt="Создание нарушения"
+                    onerror="this.src='https://placehold.co/375x812/fef2f2/ec4899?text=Создание+нарушения'">
+            </div>
+        </div>
+        <!-- Right bottom: line ends at (1020, 530) => ~24% from bottom -->
+        <div class="absolute bottom-[18%] right-[22%] w-[160px] z-20 roadmap-phone-right">
+            <div class="phone-mockup" style="width: 100%; height: 280px;">
+                <img src="screen_plan.png" alt="Метка на плане"
+                    onerror="this.src='https://placehold.co/375x812/fef3c7/f59e0b?text=Метка+на+плане'">
+            </div>
+        </div>
+
+        <!-- Steps - more compact -->
+        <div class="absolute inset-0 z-40 flex flex-col items-center justify-center pointer-events-none"
+            style="padding: 40px 0;">
+            <!-- Step 1: Left -->
+            <div class="step-item flex items-center gap-3 mb-2 pointer-events-auto -translate-x-20">
+                <div class="step-label text-right w-40">
+                    <h3 class="font-bold text-gray-800 m-0 text-sm">Авторизация</h3>
+                    <p class="text-xs text-gray-400 m-0" style="font-size: 10px;">Вход в систему</p>
+                </div>
+                <div class="diamond-box border-2 border-cyan-400 text-cyan-600"><span
+                        class="-rotate-45 font-bold text-sm">1</span></div>
+                <div class="w-40"></div>
+            </div>
+            <!-- Step 2: Right -->
+            <div class="step-item flex items-center gap-3 mb-2 pointer-events-auto translate-x-20">
+                <div class="w-40"></div>
+                <div class="diamond-box border-2 border-indigo-500 text-indigo-600"><span
+                        class="-rotate-45 font-bold text-sm">2</span></div>
+                <div class="step-label text-left w-40">
+                    <h3 class="font-bold text-gray-800 m-0 text-sm">Выбор объекта</h3>
+                    <p class="text-xs text-gray-400 m-0" style="font-size: 10px;">Список ОСК</p>
+                </div>
+            </div>
+            <!-- Step 3: Left -->
+            <div class="step-item flex items-center gap-3 mb-2 pointer-events-auto -translate-x-20">
+                <div class="step-label text-right w-40">
+                    <h3 class="font-bold text-gray-800 m-0 text-sm">Начало проверки</h3>
+                    <p class="text-xs text-gray-400 m-0" style="font-size: 10px;">Старт</p>
+                </div>
+                <div class="diamond-box border-2 border-blue-500 text-blue-600"><span
+                        class="-rotate-45 font-bold text-sm">3</span></div>
+                <div class="w-40"></div>
+            </div>
+            <!-- Step 4: Right -->
+            <div class="step-item flex items-center gap-3 mb-2 pointer-events-auto translate-x-20">
+                <div class="w-40"></div>
+                <div class="diamond-box border-2 border-purple-500 text-purple-600"><span
+                        class="-rotate-45 font-bold text-sm">4</span></div>
+                <div class="step-label text-left w-40">
+                    <h3 class="font-bold text-gray-800 m-0 text-sm">Фотоматериалы</h3>
+                    <p class="text-xs text-gray-400 m-0" style="font-size: 10px;">Съёмка</p>
+                </div>
+            </div>
+            <!-- Step 5: Left -->
+            <div class="step-item flex items-center gap-3 mb-2 pointer-events-auto -translate-x-20">
+                <div class="step-label text-right w-40">
+                    <h3 class="font-bold text-gray-800 m-0 text-sm">Фиксация</h3>
+                    <p class="text-xs text-gray-400 m-0" style="font-size: 10px;">Нарушения</p>
+                </div>
+                <div class="diamond-box border-2 border-pink-500 text-pink-600"><span
+                        class="-rotate-45 font-bold text-sm">5</span></div>
+                <div class="w-40"></div>
+            </div>
+            <!-- Step 6: Right -->
+            <div class="step-item flex items-center gap-3 mb-2 pointer-events-auto translate-x-20">
+                <div class="w-40"></div>
+                <div class="diamond-box border-2 border-orange-500 text-orange-600"><span
+                        class="-rotate-45 font-bold text-sm">6</span></div>
+                <div class="step-label text-left w-40">
+                    <h3 class="font-bold text-gray-800 m-0 text-sm">Метка на плане</h3>
+                    <p class="text-xs text-gray-400 m-0" style="font-size: 10px;">Локализация</p>
+                </div>
+            </div>
+            <!-- Step 7: Left -->
+            <div class="step-item flex items-center gap-5 mb-2 pointer-events-auto -translate-x-20">
+                <div class="step-label text-right w-40">
+                    <h3 class="font-bold text-gray-800 m-0 text-sm">Формирование</h3>
+                    <p class="text-xs text-gray-400 m-0" style="font-size: 10px;">МКП</p>
+                </div>
+                <div class="diamond-box border-2 border-teal-500 text-teal-600"><span
+                        class="-rotate-45 font-bold text-sm">7</span></div>
+                <div class="w-40"></div>
+            </div>
+            <!-- Step 8: Right -->
+            <div class="step-item flex items-center gap-3 pointer-events-auto translate-x-10">
+                <div class="w-40"></div>
+                <div class="diamond-box border-2 border-green-500 text-green-600"><span
+                        class="-rotate-45 font-bold text-sm">8</span></div>
+                <div class="step-label text-left w-40">
+                    <h3 class="font-bold text-gray-800 m-0 text-sm">Согласование</h3>
+                    <p class="text-xs text-gray-400 m-0" style="font-size: 10px;">Подписание</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- СЛАЙД 8: Сценарий 1 Intro -->
+        <div class="slide" data-step="8">
+            <div class="max-w-4xl mx-auto w-full text-center">
+                <div
+                    class="inline-block px-4 py-1 mb-6 rounded-full bg-blue-50 text-blue-600 font-bold text-sm tracking-wider uppercase border border-blue-100">
+                    Сценарий №1</div>
+                <h1 class="text-6xl mb-6">Инспектор на объекте</h1>
+                <p class="text-xl text-gray-400">Инспектор прибыл на площадку, выбрал нужный ОСК из списка и приступает
+                    к проверке.</p>
+
+                <div class="mt-12 flex justify-center">
+                    <div class="w-32 h-1 bg-gradient-to-r from-blue-500 to-blue-300 rounded-full"></div>
+                </div>
+            </div>
+        </div>
+<!-- СЛАЙД 9: Экран Объекты (MOCKUP) -->
+<div class="slide" data-step="9">
+    <div class="max-w-6xl mx-auto w-full grid grid-cols-2 gap-16 items-center">
+        <div>
+            <h2>Выбор объекта</h2>
+            <div class="card-step mb-8">
+                <h3 class="text-base text-gray-500 font-normal" style="margin-bottom: 1rem !important;">Карточка объекта
+                    содержит:
+                </h3>
+                <ul class="space-y-3">
+                    <li class="flex items-center text-sm font-medium text-gray-800"><span
+                            class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-3"></span>Номер и наименование ОСК
+                    </li>
+                    <li class="flex items-center text-sm font-medium text-gray-800"><span
+                            class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-3"></span>Точный адрес</li>
+                    <li class="flex items-center text-sm font-medium text-gray-800"><span
+                            class="w-1.5 h-1.5 bg-blue-500 rounded-full mr-3"></span>Счетчик выданных нарушений
+                    </li>
+                </ul>
+            </div>
+            <div class="p-4 bg-yellow-50 text-yellow-800 rounded-xl text-sm border border-yellow-100 flex gap-3">
+                <svg class="w-5 h-5 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+                Отображаются только объекты, закрепленные за текущим пользователем.
+            </div>
+        </div>
+
+        <div class="relative flex justify-center">
+            <!-- Phone with Real Screenshot (Slide 9) -->
+            <div class="phone-mockup">
+                <div class="phone-notch"></div>
+                <!-- IMPORTANT: Replace 'screen_objects.png' with your file name -->
+                <img src="screen_objects.png" alt="Список объектов"
+                    onerror="this.src='https://placehold.co/375x812?text=Скриншот+2'">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- СЛАЙД 10: Логика проверки - УНИФИЦИРОВАННЫЙ СТИЛЬ -->
+<div class="slide" data-step="10">
+    <div class="grid grid-cols-2 gap-10 items-center max-w-6xl mx-auto w-full">
+        <!-- Левая часть: Схема -->
+        <div class="flex flex-col items-center">
+            <h2 class="text-center mb-4" style="font-size: 1.5rem;">Структура данных проверки</h2>
+            <!-- Проверка (корень) -->
+            <div class="card-step flex items-center gap-3 w-full mb-3 p-3">
+                <div
+                    class="w-12 h-12 bg-gradient-to-br from-blue-500 to-blue-700 rounded-full flex items-center justify-center shadow-lg flex-shrink-0 border-2 border-white">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2m-6 9l2 2 4-4">
+                        </path>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="text-gray-800 font-bold text-base m-0">ПРОВЕРКА</h3>
+                    <p class="text-gray-500 text-xs m-0 mt-0.5">Сформированная проверка в системе</p>
+                </div>
+            </div>
+            <!-- Стрелка вниз -->
+            <div class="flex items-center justify-center mb-3">
+                <svg class="w-8 h-8 text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                </svg>
+            </div>
+            <!-- Дочерние элементы -->
+            <div class="flex flex-col gap-2 w-full">
+                <!-- Нарушения -->
+                <div class="card-step flex items-center gap-3 p-3">
+                    <div
+                        class="w-10 h-10 bg-gradient-to-br from-red-400 to-red-600 rounded-full flex items-center justify-center shadow-md flex-shrink-0 border-2 border-white">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 class="text-gray-800 font-bold text-sm m-0">Нарушения</h4>
+                        <p class="text-gray-500 text-xs m-0 mt-0.5">Дефекты и замечания + фото</p>
+                    </div>
+                </div>
+                <!-- Фотоматериалы -->
+                <div class="card-step flex items-center gap-3 p-3">
+                    <div
+                        class="w-10 h-10 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center shadow-md flex-shrink-0 border-2 border-white">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z">
+                            </path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 13a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 class="text-gray-800 font-bold text-sm m-0">Фотоматериалы</h4>
+                        <p class="text-gray-500 text-xs m-0 mt-0.5">Фотофиксация проверки</p>
+                    </div>
+                </div>
+                <!-- МКП -->
+                <div class="card-step flex items-center gap-3 p-3">
+                    <div
+                        class="w-10 h-10 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center shadow-md flex-shrink-0 border-2 border-white">
+                        <svg class="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4 class="text-gray-800 font-bold text-sm m-0">Материалы контрольной проверки</h4>
+                        <p class="text-gray-500 text-xs m-0 mt-0.5">Формирование МКП</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Правая часть: Мокап -->
+        <div class="flex justify-center">
+            <div class="phone-mockup" style="height: 520px;">
+                <div class="phone-notch"></div>
+                <img src="screen_check_detail.png" alt="Детали проверки"
+                    onerror="this.src='https://placehold.co/375x812/eef2ff/4661eb?text=📋+Проверка'">
+            </div>
+        </div>
+    </div>
+</div>
+<!-- СЛАЙД 11: Сценарий 2 Intro -->
+<div class="slide" data-step="11">
+    <div class="max-w-4xl mx-auto w-full text-center">
+        <div
+            class="inline-block px-4 py-1 mb-6 rounded-full bg-red-50 text-red-600 font-bold text-sm tracking-wider uppercase border border-red-100">
+            Сценарий №2</div>
+        <h1 class="text-6xl mb-6">Регистрация нарушения</h1>
+        <p class="text-xl text-gray-400">Моментальное создание карточки нарушения с фотофиксацией без лишних
+            бумаг.</p>
+        <div class="mt-12 flex justify-center">
+            <div class="w-32 h-1 bg-gradient-to-r from-red-400 to-red-200 rounded-full"></div>
+        </div>
+    </div>
+</div>
+<!-- СЛАЙД 12: Карточка нарушения (MOCKUP) -->
+<div class="slide" data-step="12">
+    <div class="max-w-6xl mx-auto w-full grid grid-cols-2 gap-16 items-center">
+        <div class="relative flex justify-center">
+            <!-- Phone with Real Screenshot (Slide 12) -->
+            <div class="phone-mockup">
+                <div class="phone-notch"></div>
+                <!-- IMPORTANT: Replace 'screen_violation.png' with your file name -->
+                <img src="screen_violation.png" alt="Карточка нарушения"
+                    onerror="this.src='https://placehold.co/375x812?text=Скриншот+3'">
+            </div>
+        </div>
+
+        <div>
+            <h2>Создание нарушения</h2>
+            <p class="mb-8">Процесс максимально упрощен для ввода данных "на ходу".</p>
+
+            <div class="grid gap-3">
+                <div class="card-step p-4 flex gap-4 items-center">
+                    <div
+                        class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold flex-shrink-0 text-sm">
+                        1</div>
+                    <div>
+                        <h4 class="font-bold text-gray-800 text-sm mb-1">Краткое описание</h4>
+                        <p class="text-xs text-gray-500 m-0">Голосовой ввод или текст</p>
+                    </div>
+                </div>
+                <div class="card-step p-4 flex gap-4 items-center">
+                    <div
+                        class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold flex-shrink-0 text-sm">
+                        2</div>
+                    <div>
+                        <h4 class="font-bold text-gray-800 text-sm mb-1">Классификатор нарушений</h4>
+                        <p class="text-xs text-gray-500 m-0">Выбор из справочника типовых нарушений</p>
+                    </div>
+                </div>
+                <div class="card-step p-4 flex gap-4 items-center">
+                    <div
+                        class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold flex-shrink-0 text-sm">
+                        3</div>
+                    <div>
+                        <h4 class="font-bold text-gray-800 text-sm mb-1">Фотофиксация</h4>
+                        <p class="text-xs text-gray-500 m-0">Прикрепление снимков</p>
+                    </div>
+                </div>
+                <div class="card-step p-4 flex gap-4 items-center">
+                    <div
+                        class="w-8 h-8 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center font-bold flex-shrink-0 text-sm">
+                        4</div>
+                    <div>
+                        <h4 class="font-bold text-gray-800 text-sm mb-1">Метка на чертеже</h4>
+                        <p class="text-xs text-gray-500 m-0">Привязка нарушения к чертежу </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- СЛАЙД 13: Фотофиксация - ГАЛЕРЕЯ МОКАПОВ -->
+<div class="slide" data-step="13">
+    <h2 class="text-center mb-4" style="margin-top: -5rem; position: relative; z-index: 100;">Работа с медиа</h2>
+    <div class="flex justify-center items-end gap-10 max-w-7xl mx-auto" style="margin-top: 2rem;">
+        <!-- Phone 1 - Камера -->
+        <div class="flex flex-col items-center">
+            <div class="phone-mockup" style="width: 260px; height: 520px; border-width: 7px; border-radius: 36px;">
+                <div class="phone-notch" style="width: 100px; height: 22px;"></div>
+                <img src="screen_camera.png" alt="Экран камеры"
+                    onerror="this.src='https://placehold.co/375x812/1f2937/ffffff?text=📷+Камера'">
+            </div>
+            <div class="mt-5 text-center">
+                <div class="text-base font-bold text-gray-800">Съемка</div>
+                <div class="text-sm text-gray-400">Нативная камера</div>
+            </div>
+        </div>
+        <!-- Phone 2 - Галерея (центральный) -->
+        <div class="flex flex-col items-center z-10">
+            <div class="phone-mockup" style="width: 300px; height: 600px; border-width: 8px; border-radius: 40px;">
+                <div class="phone-notch" style="width: 120px; height: 25px;"></div>
+                <img src="screen_gallery.png" alt="Галерея фото"
+                    onerror="this.src='https://placehold.co/375x812/eef2ff/4661eb?text=🖼️+Галерея'">
+            </div>
+            <div class="mt-5 text-center">
+                <div class="text-lg font-bold text-blue-600">Галерея</div>
+                <div class="text-sm text-gray-400">Выбор снимков</div>
+            </div>
+        </div>
+        <!-- Phone 3 - Редактор -->
+        <div class="flex flex-col items-center">
+            <div class="phone-mockup" style="width: 260px; height: 520px; border-width: 7px; border-radius: 36px;">
+                <div class="phone-notch" style="width: 100px; height: 22px;"></div>
+                <img src="screen_editor.png" alt="Редактор фото"
+                    onerror="this.src='https://placehold.co/375x812/fef2f2/ef4444?text=✏️+Редактор'">
+            </div>
+            <div class="mt-5 text-center">
+                <div class="text-base font-bold text-gray-800">Редактор</div>
+                <div class="text-sm text-gray-400">Разметка зон</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- СЛАЙД 14: Результат - Нарушение сформировано -->
+<div class="slide" data-step="14">
+    <div class="max-w-6xl mx-auto w-full grid grid-cols-2 gap-12 items-center">
+        <!-- Левая часть: Мокап + Поток данных -->
+        <div class="flex flex-col items-center">
+            <!-- Мокап телефона -->
+            <div class="phone-mockup" style="height: 560px; width: 280px; border-width: 7px;">
+                <div class="phone-notch" style="width: 110px; height: 24px;"></div>
+                <img src="screen_violationdone.png" alt="Карточка нарушения"
+                    onerror="this.src='https://placehold.co/375x812/ecfdf5/10b981?text=✓+Нарушение'">
+            </div>
+
+            <!-- Визуальный поток синхронизации -->
+            <div class="flex items-center justify-center gap-2 mt-4">
+                <div class="flex flex-col items-center" style="width: 70px;">
+                    <div
+                        class="w-9 h-9 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg flex items-center justify-center shadow-md">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path>
+                        </svg>
+                    </div>
+                    <span class="text-xs text-gray-500 mt-1 text-center">Телефон</span>
+                </div>
+                <div class="flex items-center" style="margin-top: -16px;">
+                    <div class="w-6 h-0.5 bg-gradient-to-r from-blue-400 to-purple-400"></div>
+                    <svg class="w-3 h-3 text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <div class="flex flex-col items-center" style="width: 70px;">
+                    <div
+                        class="w-9 h-9 bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg flex items-center justify-center shadow-md">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z">
+                            </path>
+                        </svg>
+                    </div>
+                    <span class="text-xs text-gray-500 mt-1 text-center">Облако</span>
+                </div>
+                <div class="flex items-center" style="margin-top: -16px;">
+                    <div class="w-6 h-0.5 bg-gradient-to-r from-purple-400 to-green-400"></div>
+                    <svg class="w-3 h-3 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                        <path fill-rule="evenodd"
+                            d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                            clip-rule="evenodd"></path>
+                    </svg>
+                </div>
+                <div class="flex flex-col items-center" style="width: 70px;">
+                    <div
+                        class="w-9 h-9 bg-gradient-to-br from-green-400 to-green-600 rounded-lg flex items-center justify-center shadow-md">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z">
+                            </path>
+                        </svg>
+                    </div>
+                    <span class="text-xs text-gray-500 mt-1 text-center">Доступ</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Правая часть: Контент -->
+        <div>
+            <!-- Успех бейдж -->
+            <div
+                class="inline-flex items-center gap-2 px-4 py-2 bg-green-50 text-green-600 rounded-full text-sm font-semibold mb-4 border border-green-200">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                </svg>
+                Успешно создано
+            </div>
+
+            <h2 class="mb-3">Нарушение сформировано</h2>
+            <p class="text-gray-500 mb-6">Данные мгновенно доступны всем инспекторам на объекте</p>
+
+            <!-- Возможности -->
+            <div class="space-y-2">
+                <div class="card-step p-3 flex items-center gap-3">
+                    <div
+                        class="w-9 h-9 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center shadow-md flex-shrink-0">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="font-bold text-gray-800 text-sm">Коллеги видят нарушение</div>
+                        <p class="text-xs text-gray-500 m-0">Моментальный доступ в офисе и на объекте</p>
+                    </div>
+                </div>
+                <div class="card-step p-3 flex items-center gap-3">
+                    <div
+                        class="w-9 h-9 bg-gradient-to-br from-orange-400 to-orange-600 rounded-xl flex items-center justify-center shadow-md flex-shrink-0">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="font-bold text-gray-800 text-sm">Редактирование нарушения</div>
+                        <p class="text-xs text-gray-500 m-0">Возможность внести правки в карточку</p>
+                    </div>
+                </div>
+                <div class="card-step p-3 flex items-center gap-3">
+                    <div
+                        class="w-9 h-9 bg-gradient-to-br from-purple-400 to-purple-600 rounded-xl flex items-center justify-center shadow-md flex-shrink-0">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                            </path>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="font-bold text-gray-800 text-sm">Метка на чертеже</div>
+                        <p class="text-xs text-gray-500 m-0">Привязка нарушения к месту на чертеже</p>
+                    </div>
+                </div>
+                <div class="card-step p-3 flex items-center gap-3">
+                    <div
+                        class="w-9 h-9 bg-gradient-to-br from-green-400 to-green-600 rounded-xl flex items-center justify-center shadow-md flex-shrink-0">
+                        <svg class="w-4 h-4 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                            </path>
+                        </svg>
+                    </div>
+                    <div>
+                        <div class="font-bold text-gray-800 text-sm">Готово для МКП</div>
+                        <p class="text-xs text-gray-500 m-0">Доступен выбор нарушения для добавления в проверку</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- СЛАЙД 15: Работа с документами - ГАЛЕРЕЯ МОКАПОВ -->
+<div class="slide" data-step="15">
+    <h2 class="text-center mb-4" style="margin-top: -5rem; position: relative; z-index: 100;">Работа с документами и
+        файлами</h2>
+    <div class="flex justify-center items-end gap-10 max-w-7xl mx-auto" style="margin-top: 2rem;">
+        <!-- Phone 1 - Чертежи -->
+        <div class="flex flex-col items-center">
+            <div class="phone-mockup" style="width: 260px; height: 520px; border-width: 7px; border-radius: 36px;">
+                <div class="phone-notch" style="width: 100px; height: 22px;"></div>
+                <img src="screen_plan.png" alt="Просмотр чертежей"
+                    onerror="this.src='https://placehold.co/375x812/fef2f2/dc2626?text=📐+Чертежи'">
+            </div>
+            <div class="mt-5 text-center">
+                <div class="text-base font-bold text-gray-800">Чертежи</div>
+                <div class="text-sm text-gray-400">Планы и схемы</div>
+            </div>
+        </div>
+        <!-- Phone 2 - Документы/МКП (центральный) -->
+        <div class="flex flex-col items-center z-10">
+            <div class="phone-mockup" style="width: 300px; height: 600px; border-width: 8px; border-radius: 40px;">
+                <div class="phone-notch" style="width: 120px; height: 25px;"></div>
+                <img src="screen_documents.png" alt="Реестр документов"
+                    onerror="this.src='https://placehold.co/375x812/eef2ff/4661eb?text=📄+Документы'">
+            </div>
+            <div class="mt-5 text-center">
+                <div class="text-lg font-bold text-blue-600">Реестр документов</div>
+                <div class="text-sm text-gray-400">МКП, отчёты, обращения</div>
+            </div>
+        </div>
+        <!-- Phone 3 - Внешние документы -->
+        <div class="flex flex-col items-center">
+            <div class="phone-mockup" style="width: 260px; height: 520px; border-width: 7px; border-radius: 36px;">
+                <div class="phone-notch" style="width: 100px; height: 22px;"></div>
+                <img src="screen_otherdocs.png" alt="Внешние документы"
+                    onerror="this.src='https://placehold.co/375x812/f0fdf4/16a34a?text=📎+Внешние'">
+            </div>
+            <div class="mt-5 text-center">
+                <div class="text-base font-bold text-gray-800">Внешние документы</div>
+                <div class="text-sm text-gray-400">Дополнительные файлы</div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- СЛАЙД 16: Уведомления - С МОКАПОМ -->
+<div class="slide" data-step="16">
+    <div class="grid grid-cols-2 gap-12 items-center max-w-6xl mx-auto w-full">
+        <!-- Phone Mockup -->
+        <div class="flex justify-center">
+            <div class="phone-mockup" style="height: 520px;">
+                <div class="phone-notch"></div>
+                <img src="screen_notifications.png" alt="Уведомления"
+                    onerror="this.src='https://placehold.co/375x812/fef2f2/ef4444?text=🔔+Уведомления'">
+            </div>
+        </div>
+        <!-- Content -->
+        <div>
+            <h2>Центр уведомлений</h2>
+            <p class="mb-6">Уведомления о важных событиях в системе.</p>
+            <div class="grid gap-3 text-left">
+                <div class="card-step p-3 flex gap-4 items-center border-blue-200 bg-blue-50">
+                    <div class="w-2 h-2 rounded-full bg-blue-500"></div>
+                    <div>
+                        <div class="text-sm font-bold text-blue-700">Вам пришло МКП на подписание</div>
+                        <div class="text-xs text-gray-500">Только что • ОКС №45</div>
+                    </div>
+                </div>
+                <div class="card-step p-3 flex gap-4 items-center">
+                    <div class="w-2 h-2 rounded-full bg-green-500"></div>
+                    <div>
+                        <div class="text-sm font-bold text-gray-800">Нарушение №412 устранено</div>
+                        <div class="text-xs text-gray-500">5 минут назад • ОКС №123</div>
+                    </div>
+                </div>
+                <div class="card-step p-3 flex gap-4 items-center">
+                    <div class="w-2 h-2 rounded-full bg-orange-500"></div>
+                    <div>
+                        <div class="text-sm font-bold text-gray-800">Отчёт на согласование</div>
+                        <div class="text-xs text-gray-500">1 час назад • Инспектор Иванов</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- СЛАЙД 17: Переход к демо -->
+<div class="slide" data-step="17">
+    <div
+        class="bg-gradient-to-br from-white to-blue-100 absolute inset-0 flex flex-col items-center justify-center text-center p-12">
+        <div
+            class="w-28 h-28 bg-gradient-to-br from-blue-500 to-blue-700 rounded-3xl flex items-center justify-center mb-10 shadow-2xl shadow-blue-500/40 animate-pulse">
+            <svg class="w-14 h-14 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M14.752 11.168l-3.197-2.132A1 1 0 0010 9.87v4.263a1 1 0 001.555.832l3.197-2.132a1 1 0 000-1.664z">
+                </path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            </svg>
+        </div>
+        <h1 class="text-gray-900 text-7xl" style="font-size: 5rem !important;">Демонстрация</h1>
+        <p class="text-lg mt-4 text-gray-500 font-normal">Сценарий: Создание проверки и фиксация нарушения</p>
+        <div class="mt-10 px-6 py-2 bg-blue-50 rounded-full border border-blue-200 text-xs text-blue-600">
+            Переключение на планшет докладчика...
+        </div>
+    </div>
+</div>
+<!-- СЛАЙД 18: Итог - УНИФИЦИРОВАННЫЙ СТИЛЬ -->
+<div class="slide" data-step="18">
+    <div class="max-w-6xl mx-auto w-full h-full flex flex-col justify-center">
+        <h2 class="text-center mb-10 text-4xl font-bold text-gray-800">Экосистема возможностей</h2>
+
+        <div class="grid grid-cols-2 gap-12">
+            <!-- Колонка 1: Полевая работа -->
+            <div class="bg-white/50 backdrop-blur-sm rounded-3xl p-8 border border-white/60 shadow-xl">
+                <div class="flex items-center gap-4 mb-8">
+                    <div
+                        class="w-12 h-12 rounded-2xl bg-blue-600 text-white flex items-center justify-center font-bold text-xl shadow-lg shadow-blue-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 m-0">Инструменты контроля</h3>
+                </div>
+
+                <div class="grid gap-4">
+                    <!-- Проверки -->
+                    <div
+                        class="feature-card flex items-center gap-4 p-4 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-hover hover:border-blue-400 transition-all">
+                        <div
+                            class="w-10 h-10 rounded-full bg-blue-100 text-blue-600 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-800">Проверки</div>
+                            <div class="text-xs text-gray-500">Полный жизненный цикл проверки</div>
+                        </div>
+                    </div>
+                    <!-- Нарушения -->
+                    <div
+                        class="feature-card flex items-center gap-4 p-4 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-hover hover:border-blue-400 transition-all">
+                        <div
+                            class="w-10 h-10 rounded-full bg-red-100 text-red-600 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-800">Нарушения</div>
+                            <div class="text-xs text-gray-500">Фиксация дефектов и замечаний</div>
+                        </div>
+                    </div>
+                    <!-- Фото -->
+                    <div
+                        class="feature-card flex items-center gap-4 p-4 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-hover hover:border-blue-400 transition-all">
+                        <div
+                            class="w-10 h-10 rounded-full bg-purple-100 text-purple-600 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M3 9a2 2 0 012-2h.93a2 2 0 001.664-.89l.812-1.22A2 2 0 0110.07 4h3.86a2 2 0 011.664.89l.812 1.22A2 2 0 0018.07 7H19a2 2 0 012 2v9a2 2 0 01-2 2H5a2 2 0 01-2-2V9z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-800">Фотофиксация</div>
+                            <div class="text-xs text-gray-500">Камера и галерея</div>
+                        </div>
+                    </div>
+                    <!-- Метки -->
+                    <div
+                        class="feature-card flex items-center gap-4 p-4 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-hover hover:border-blue-400 transition-all">
+                        <div
+                            class="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-800">Метки на чертежах</div>
+                            <div class="text-xs text-gray-500">Точная локализация</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Колонка 2: Процессы -->
+            <div class="bg-white/50 backdrop-blur-sm rounded-3xl p-8 border border-white/60 shadow-xl">
+                <div class="flex items-center gap-4 mb-8">
+                    <div
+                        class="w-12 h-12 rounded-2xl bg-emerald-600 text-white flex items-center justify-center font-bold text-xl shadow-lg shadow-emerald-200">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2">
+                            </path>
+                        </svg>
+                    </div>
+                    <h3 class="text-2xl font-bold text-gray-800 m-0">Цифровые процессы</h3>
+                </div>
+
+                <div class="grid gap-4">
+                    <!-- Документы МКП -->
+                    <div
+                        class="feature-card flex items-center gap-4 p-4 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-hover hover:border-blue-400 transition-all">
+                        <div
+                            class="w-10 h-10 rounded-full bg-green-100 text-green-600 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-800">Документы МКП</div>
+                            <div class="text-xs text-gray-500">Автоматическое формирование</div>
+                        </div>
+                    </div>
+                    <!-- Внешние документы -->
+                    <div
+                        class="feature-card flex items-center gap-4 p-4 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-hover hover:border-blue-400 transition-all">
+                        <div
+                            class="w-10 h-10 rounded-full bg-cyan-100 text-cyan-600 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M5 19a2 2 0 01-2-2V7a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1M5 19h14a2 2 0 002-2v-5a2 2 0 00-2-2H9a2 2 0 00-2 2v5a2 2 0 01-2 2z">
+                                </path>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-800">Внешние документы</div>
+                            <div class="text-xs text-gray-500">Доступ к необходимым файлам </div>
+                        </div>
+                    </div>
+                    <!-- Push -->
+                    <div
+                        class="feature-card flex items-center gap-4 p-4 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-hover hover:border-blue-400 transition-all">
+                        <div
+                            class="w-10 h-10 rounded-full bg-rose-100 text-rose-600 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9">
+                                </path>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-800">Уведомления</div>
+                            <div class="text-xs text-gray-500">Мгновенные оповещения внутри приложения</div>
+                        </div>
+                    </div>
+                    <!-- Согласование -->
+                    <div
+                        class="feature-card flex items-center gap-4 p-4 bg-white rounded-2xl shadow-sm border border-gray-100 hover:shadow-hover hover:border-blue-400 transition-all">
+                        <div
+                            class="w-10 h-10 rounded-full bg-emerald-100 text-emerald-600 flex items-center justify-center flex-shrink-0">
+                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                        </div>
+                        <div>
+                            <div class="font-bold text-gray-800">Запуск процессов с документами</div>
+                            <div class="text-xs text-gray-500">Согласование и подписание документов</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- СЛАЙД 19: Планы развития -->
+<div class="slide" data-step="19">
+    <div class="max-w-6xl mx-auto w-full">
+        <h2 class="text-center mb-8" style="margin-top: -4rem;">Вектор развития</h2>
+        <div class="grid grid-cols-3 gap-6">
+            <!-- Ряд 1 -->
+            <div class="card-step p-5 flex gap-4 items-center hover:shadow-hover">
+                <div
+                    class="w-12 h-12 bg-blue-100 text-blue-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10">
+                        </path>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="text-base mb-1">Оффлайн-режим</h3>
+                    <p class="text-sm m-0">Работа без интернета с локальной базой данных</p>
+                </div>
+            </div>
+            <div class="card-step p-5 flex gap-4 items-center hover:shadow-hover">
+                <div
+                    class="w-12 h-12 bg-cyan-100 text-cyan-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253">
+                        </path>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="text-base mb-1">Умные справочники</h3>
+                    <p class="text-sm m-0">Предиктивный ввод на основе истории</p>
+                </div>
+            </div>
+            <div class="card-step p-5 flex gap-4 items-center hover:shadow-hover">
+                <div
+                    class="w-12 h-12 bg-purple-100 text-purple-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="text-base mb-1">Искусственный интеллект</h3>
+                    <p class="text-sm m-0">ИИ-помощник для анализа нарушений</p>
+                </div>
+            </div>
+            <!-- Ряд 2 -->
+            <div class="card-step p-5 flex gap-4 items-center hover:shadow-hover">
+                <div
+                    class="w-12 h-12 bg-amber-100 text-amber-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z">
+                        </path>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="text-base mb-1">Дашборды</h3>
+                    <p class="text-sm m-0">Наглядный мониторинг состояния объектов</p>
+                </div>
+            </div>
+            <div class="card-step p-5 flex gap-4 items-center hover:shadow-hover">
+                <div
+                    class="w-12 h-12 bg-green-100 text-green-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15">
+                        </path>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="text-base mb-1">Синхронизация</h3>
+                    <p class="text-sm m-0">Автоматический обмен данными с сервером</p>
+                </div>
+            </div>
+            <div class="card-step p-5 flex gap-4 items-center hover:shadow-hover">
+                <div
+                    class="w-12 h-12 bg-rose-100 text-rose-600 rounded-xl flex items-center justify-center flex-shrink-0">
+                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 9l3 3-3 3m5 0h3M5 20h14a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                        </path>
+                    </svg>
+                </div>
+                <div>
+                    <h3 class="text-base mb-1">Интеграции</h3>
+                    <p class="text-sm m-0">Связь с внешними информационными системами</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+﻿<!-- СЛАЙД 20: Финал -->
+<div class="slide" data-step="20">
+    <div class="flex flex-col items-center text-center">
+        <div class="w-24 h-24 bg-blue-600 text-white rounded-3xl flex items-center justify-center mb-8 shadow-xl">
+            <svg class="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z">
+                </path>
+            </svg>
+        </div>
+        <h1 class="mb-4">Спасибо за внимание!</h1>
+        <p class="text-xl text-gray-500 mb-12">Будем рады ответить на ваши вопросы</p>
+    </div>
+</div>
+
+    </div>
+
+    <!-- UI Controls -->
+    <div class="slide-counter" id="counter">01 / 20</div>
+    <div class="controls">
+        <button class="control-btn" onclick="prevSlide()" title="Назад">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+        </button>
+        <button class="control-btn" onclick="nextSlide()" title="Вперед">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </button>
+    </div>
+
+    <script src="assets/js/demo4.js"></script>
+
+</body>
+
+</html>

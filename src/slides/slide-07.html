@@ -1,0 +1,170 @@
+<!-- СЛАЙД 7: Путь инспектора - ROADMAP -->
+<div class="slide" data-step="7">
+    <div class="w-full h-full relative overflow-hidden px-6 py-4">
+        <h2 class="text-center mb-2 relative z-50" style="font-size: 2rem; margin-top: 6.5rem;">Путь инспектора в
+            мобильном приложении</h2>
+
+        <!-- SVG Background -->
+        <svg class="absolute inset-0 w-full h-full pointer-events-none z-10" viewBox="0 0 1400 700"
+            preserveAspectRatio="xMidYMid meet">
+            <defs>
+                <linearGradient id="pathGrad7" x1="0%" y1="0%" x2="0%" y2="100%">
+                    <stop offset="0%" stop-color="#22d3ee" />
+                    <stop offset="25%" stop-color="#6366f1" />
+                    <stop offset="50%" stop-color="#ec4899" />
+                    <stop offset="75%" stop-color="#f59e0b" />
+                    <stop offset="100%" stop-color="#10b981" />
+                </linearGradient>
+                <linearGradient id="fadeLeft" x1="100%" y1="0%" x2="0%" y2="0%">
+                    <stop offset="0%" stop-color="#22d3ee" stop-opacity="0.5" />
+                    <stop offset="100%" stop-color="#22d3ee" stop-opacity="0" />
+                </linearGradient>
+                <linearGradient id="fadeRight" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#6366f1" stop-opacity="0.5" />
+                    <stop offset="100%" stop-color="#6366f1" stop-opacity="0" />
+                </linearGradient>
+                <linearGradient id="fadeLeft2" x1="100%" y1="0%" x2="0%" y2="0%">
+                    <stop offset="0%" stop-color="#ec4899" stop-opacity="0.5" />
+                    <stop offset="100%" stop-color="#ec4899" stop-opacity="0" />
+                </linearGradient>
+                <linearGradient id="fadeRight2" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.5" />
+                    <stop offset="100%" stop-color="#f59e0b" stop-opacity="0" />
+                </linearGradient>
+                <filter id="glowPath">
+                    <feGaussianBlur stdDeviation="2" result="blur" />
+                    <feMerge>
+                        <feMergeNode in="blur" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+            </defs>
+
+            <!-- Smooth Snake Path -->
+            <path
+                d="M 700 60 C 700 85, 650 100, 650 125 C 650 150, 750 165, 750 190 C 750 215, 650 230, 650 255 C 650 280, 750 295, 750 320 C 750 345, 650 360, 650 385 C 650 410, 750 425, 750 450 C 750 475, 650 490, 650 515 C 650 540, 700 555, 700 580"
+                stroke="url(#pathGrad7)" stroke-width="4" fill="none" stroke-linecap="round" filter="url(#glowPath)" />
+
+            <!-- Fading connections -->
+            <path d="M 650 125 Q 500 125, 380 180" stroke="url(#fadeLeft)" stroke-width="1.5" fill="none" />
+            <path d="M 750 190 Q 900 190, 1020 140" stroke="url(#fadeRight)" stroke-width="1.5" fill="none" />
+            <path d="M 650 385 Q 500 385, 380 480" stroke="url(#fadeLeft2)" stroke-width="1.5" fill="none" />
+            <path d="M 750 450 Q 900 450, 1020 530" stroke="url(#fadeRight2)" stroke-width="1.5" fill="none" />
+        </svg>
+
+        <!-- Phones - positioned at the end of connection lines -->
+        <!-- Left top: line ends at (380, 180) in SVG viewBox 1400x700 -->
+        <div class="absolute top-[18%] left-[22%] w-[160px] z-20 roadmap-phone-left">
+            <div class="phone-mockup" style="width: 100%; height: 280px;">
+                <img src="screen_auth.png" alt="Авторизация"
+                    onerror="this.src='https://placehold.co/375x812/1e293b/22d3ee?text=Авторизация'">
+            </div>
+        </div>
+        <!-- Right top: line ends at (1020, 140) => ~27% from right -->
+        <div class="absolute top-[14%] right-[22%] w-[160px] z-20 roadmap-phone-right">
+            <div class="phone-mockup" style="width: 100%; height: 280px;">
+                <img src="screen_objects.png" alt="Выбор объекта"
+                    onerror="this.src='https://placehold.co/375x812/eef2ff/6366f1?text=Выбор+объекта'">
+            </div>
+        </div>
+        <!-- Left bottom: line ends at (380, 480) => ~31% from bottom -->
+        <div class="absolute bottom-[22%] left-[22%] w-[160px] z-20 roadmap-phone-left">
+            <div class="phone-mockup" style="width: 100%; height: 280px;">
+                <img src="screen_violation.png" alt="Создание нарушения"
+                    onerror="this.src='https://placehold.co/375x812/fef2f2/ec4899?text=Создание+нарушения'">
+            </div>
+        </div>
+        <!-- Right bottom: line ends at (1020, 530) => ~24% from bottom -->
+        <div class="absolute bottom-[18%] right-[22%] w-[160px] z-20 roadmap-phone-right">
+            <div class="phone-mockup" style="width: 100%; height: 280px;">
+                <img src="screen_plan.png" alt="Метка на плане"
+                    onerror="this.src='https://placehold.co/375x812/fef3c7/f59e0b?text=Метка+на+плане'">
+            </div>
+        </div>
+
+        <!-- Steps - more compact -->
+        <div class="absolute inset-0 z-40 flex flex-col items-center justify-center pointer-events-none"
+            style="padding: 40px 0;">
+            <!-- Step 1: Left -->
+            <div class="step-item flex items-center gap-3 mb-2 pointer-events-auto -translate-x-20">
+                <div class="step-label text-right w-40">
+                    <h3 class="font-bold text-gray-800 m-0 text-sm">Авторизация</h3>
+                    <p class="text-xs text-gray-400 m-0" style="font-size: 10px;">Вход в систему</p>
+                </div>
+                <div class="diamond-box border-2 border-cyan-400 text-cyan-600"><span
+                        class="-rotate-45 font-bold text-sm">1</span></div>
+                <div class="w-40"></div>
+            </div>
+            <!-- Step 2: Right -->
+            <div class="step-item flex items-center gap-3 mb-2 pointer-events-auto translate-x-20">
+                <div class="w-40"></div>
+                <div class="diamond-box border-2 border-indigo-500 text-indigo-600"><span
+                        class="-rotate-45 font-bold text-sm">2</span></div>
+                <div class="step-label text-left w-40">
+                    <h3 class="font-bold text-gray-800 m-0 text-sm">Выбор объекта</h3>
+                    <p class="text-xs text-gray-400 m-0" style="font-size: 10px;">Список ОСК</p>
+                </div>
+            </div>
+            <!-- Step 3: Left -->
+            <div class="step-item flex items-center gap-3 mb-2 pointer-events-auto -translate-x-20">
+                <div class="step-label text-right w-40">
+                    <h3 class="font-bold text-gray-800 m-0 text-sm">Начало проверки</h3>
+                    <p class="text-xs text-gray-400 m-0" style="font-size: 10px;">Старт</p>
+                </div>
+                <div class="diamond-box border-2 border-blue-500 text-blue-600"><span
+                        class="-rotate-45 font-bold text-sm">3</span></div>
+                <div class="w-40"></div>
+            </div>
+            <!-- Step 4: Right -->
+            <div class="step-item flex items-center gap-3 mb-2 pointer-events-auto translate-x-20">
+                <div class="w-40"></div>
+                <div class="diamond-box border-2 border-purple-500 text-purple-600"><span
+                        class="-rotate-45 font-bold text-sm">4</span></div>
+                <div class="step-label text-left w-40">
+                    <h3 class="font-bold text-gray-800 m-0 text-sm">Фотоматериалы</h3>
+                    <p class="text-xs text-gray-400 m-0" style="font-size: 10px;">Съёмка</p>
+                </div>
+            </div>
+            <!-- Step 5: Left -->
+            <div class="step-item flex items-center gap-3 mb-2 pointer-events-auto -translate-x-20">
+                <div class="step-label text-right w-40">
+                    <h3 class="font-bold text-gray-800 m-0 text-sm">Фиксация</h3>
+                    <p class="text-xs text-gray-400 m-0" style="font-size: 10px;">Нарушения</p>
+                </div>
+                <div class="diamond-box border-2 border-pink-500 text-pink-600"><span
+                        class="-rotate-45 font-bold text-sm">5</span></div>
+                <div class="w-40"></div>
+            </div>
+            <!-- Step 6: Right -->
+            <div class="step-item flex items-center gap-3 mb-2 pointer-events-auto translate-x-20">
+                <div class="w-40"></div>
+                <div class="diamond-box border-2 border-orange-500 text-orange-600"><span
+                        class="-rotate-45 font-bold text-sm">6</span></div>
+                <div class="step-label text-left w-40">
+                    <h3 class="font-bold text-gray-800 m-0 text-sm">Метка на плане</h3>
+                    <p class="text-xs text-gray-400 m-0" style="font-size: 10px;">Локализация</p>
+                </div>
+            </div>
+            <!-- Step 7: Left -->
+            <div class="step-item flex items-center gap-5 mb-2 pointer-events-auto -translate-x-20">
+                <div class="step-label text-right w-40">
+                    <h3 class="font-bold text-gray-800 m-0 text-sm">Формирование</h3>
+                    <p class="text-xs text-gray-400 m-0" style="font-size: 10px;">МКП</p>
+                </div>
+                <div class="diamond-box border-2 border-teal-500 text-teal-600"><span
+                        class="-rotate-45 font-bold text-sm">7</span></div>
+                <div class="w-40"></div>
+            </div>
+            <!-- Step 8: Right -->
+            <div class="step-item flex items-center gap-3 pointer-events-auto translate-x-10">
+                <div class="w-40"></div>
+                <div class="diamond-box border-2 border-green-500 text-green-600"><span
+                        class="-rotate-45 font-bold text-sm">8</span></div>
+                <div class="step-label text-left w-40">
+                    <h3 class="font-bold text-gray-800 m-0 text-sm">Согласование</h3>
+                    <p class="text-xs text-gray-400 m-0" style="font-size: 10px;">Подписание</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

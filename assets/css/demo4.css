@@ -1,0 +1,597 @@
+:root {
+    --primary: #4661EB;
+    --primary-light: #EEF2FF;
+    --text-main: #1F2937;
+    --text-secondary: #6B7280;
+    --bg-app: #F5F7FF;
+    --bg-card: #FFFFFF;
+    --shadow-soft: 0 8px 24px rgba(0, 0, 0, 0.04), 0 2px 6px rgba(0, 0, 0, 0.02);
+    --shadow-hover: 0 12px 32px rgba(70, 97, 235, 0.08), 0 4px 12px rgba(0, 0, 0, 0.02);
+    --radius-card: 20px;
+}
+
+body {
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    overflow: hidden;
+    background-color: var(--bg-app);
+    color: var(--text-main);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    font-feature-settings: 'cv11', 'ss01';
+}
+
+/* Slide Container */
+#presentation-container {
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Decorative Background Elements (Abstract shapes) */
+.bg-decoration {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    z-index: 0;
+    opacity: 0.6;
+}
+
+.bg-blob-1 {
+    top: -10%;
+    right: -5%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, #E0E7FF 0%, transparent 70%);
+}
+
+.bg-blob-2 {
+    bottom: -10%;
+    left: -5%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, #EEF2FF 0%, transparent 70%);
+}
+
+.slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2rem 4rem;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.6s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.6s cubic-bezier(0.25, 0.8, 0.25, 1);
+    transform: translateY(20px) scale(0.99);
+    z-index: 1;
+}
+
+.slide.active {
+    opacity: 1;
+    pointer-events: all;
+    transform: translateY(0) scale(1);
+    z-index: 10;
+}
+
+/* SaaS Card Style */
+.card {
+    background: var(--bg-card);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-soft);
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-hover);
+}
+
+.card-flat {
+    background: var(--bg-card);
+    border-radius: var(--radius-card);
+    box-shadow: var(--shadow-soft);
+    padding: 2rem;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+/* Step Card - единый стиль для шагов как на слайде 2 */
+.card-step {
+    background: var(--bg-card);
+    border-radius: 1rem;
+    box-shadow: var(--shadow-soft);
+    padding: 1.25rem;
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    cursor: default;
+}
+
+.card-step:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(70, 97, 235, 0.15);
+    border-color: #93c5fd;
+}
+
+/* Feature card for slide 18 */
+.feature-card {
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+}
+
+.feature-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 20px 40px rgba(70, 97, 235, 0.15);
+    border-color: #93c5fd;
+}
+
+/* Typography - Premium System (unified like slide 8) */
+h1 {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 3.75rem !important;
+    /* text-6xl = 60px */
+    line-height: 1 !important;
+    font-weight: 800 !important;
+    color: var(--text-main) !important;
+    margin-bottom: 1.5rem !important;
+    letter-spacing: -0.04em !important;
+}
+
+h2 {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 2.5rem !important;
+    /* 40px */
+    line-height: 1.1 !important;
+    font-weight: 700 !important;
+    color: var(--text-main) !important;
+    margin-bottom: 1.5rem !important;
+    letter-spacing: -0.03em !important;
+}
+
+h3 {
+    font-family: 'Plus Jakarta Sans', sans-serif !important;
+    font-size: 1.5rem !important;
+    /* 24px */
+    font-weight: 600 !important;
+    color: var(--text-main) !important;
+    margin-bottom: 0.5rem !important;
+    letter-spacing: -0.02em !important;
+}
+
+p,
+li {
+    font-family: 'Inter', sans-serif !important;
+    font-size: 1.25rem !important;
+    /* text-xl = 20px */
+    color: #9CA3AF !important;
+    /* text-gray-400 */
+    line-height: 1.6 !important;
+    font-weight: 400 !important;
+}
+
+/* Text utilities */
+.text-primary {
+    color: var(--primary);
+}
+
+.bg-primary-soft {
+    background-color: var(--primary-light);
+    color: var(--primary);
+}
+
+.text-light {
+    font-weight: 300;
+}
+
+.text-display {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    letter-spacing: -0.03em;
+}
+
+/* Icon styling */
+.icon-box {
+    width: 64px;
+    height: 64px;
+    background: var(--primary-light);
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary);
+    margin-bottom: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.card:hover .icon-box {
+    background: var(--primary);
+    color: white;
+    transform: scale(1.1) rotate(-5deg);
+}
+
+.icon-box svg {
+    width: 32px;
+    height: 32px;
+}
+
+/* Phone Mockup - Refined */
+.phone-mockup {
+    width: 300px;
+    height: 600px;
+    background: #fff;
+    border: 8px solid #1F2937;
+    /* Thinner border */
+    border-radius: 40px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    z-index: 2;
+    transition: transform 0.5s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.5s ease;
+    cursor: pointer;
+}
+
+.phone-mockup:hover {
+    transform: scale(1.035) translateY(-8px);
+    box-shadow: 0 40px 80px -15px rgba(0, 0, 0, 0.3);
+    z-index: 40;
+}
+
+/* Notch element */
+.phone-notch {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 25px;
+    background: #1F2937;
+    border-bottom-left-radius: 16px;
+    border-bottom-right-radius: 16px;
+    z-index: 10;
+}
+
+/* Image/Video inside mockup */
+.phone-mockup img,
+.phone-mockup video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top;
+}
+
+.phone-header {
+    background: #FFFFFF;
+    height: 60px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 25px 20px 10px;
+    justify-content: space-between;
+    border-bottom: 1px solid #F3F4F6;
+}
+
+.phone-body {
+    flex: 1;
+    background: #F9FAFB;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    overflow-y: auto;
+}
+
+/* Skeleton UI refined */
+.sk-card {
+    background: white;
+    border-radius: 12px;
+    padding: 16px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+    border: 1px solid #F3F4F6;
+}
+
+.sk-tag {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 10px;
+    font-weight: 600;
+}
+
+.sk-tag-red {
+    background: #FEF2F2;
+    color: #EF4444;
+}
+
+.sk-tag-green {
+    background: #ECFDF5;
+    color: #10B981;
+}
+
+/* Navigation Controls */
+.controls {
+    position: fixed;
+    bottom: 30px;
+    right: 40px;
+    z-index: 100;
+    display: flex;
+    gap: 12px;
+    background: white;
+    padding: 8px;
+    border-radius: 16px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #F3F4F6;
+}
+
+.control-btn {
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    border: none;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+    color: var(--text-secondary);
+}
+
+.control-btn:hover {
+    background: var(--primary-light);
+    color: var(--primary);
+}
+
+.slide-counter {
+    position: fixed;
+    bottom: 42px;
+    left: 40px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    z-index: 100;
+    letter-spacing: 0.05em;
+}
+
+/* Animation utilities */
+.fade-in-up {
+    animation: fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.delay-100 {
+    animation-delay: 0.1s;
+}
+
+.delay-200 {
+    animation-delay: 0.2s;
+}
+
+.delay-300 {
+    animation-delay: 0.3s;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Progress Bar (Decorative) */
+.progress-indicator {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: var(--primary);
+    transition: width 0.5s ease;
+    z-index: 100;
+}
+
+/* Grid Layouts helpers */
+.grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+    height: 100%;
+}
+
+.grid-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+}
+
+/* Dashboard specific abstract elements */
+.dashboard-header-mock {
+    position: absolute;
+    top: 2rem;
+    left: 4rem;
+    right: 4rem;
+    height: 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.logo-area {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 700;
+    color: var(--text-main);
+    font-size: 1.2rem;
+}
+
+.logo-image {
+    height: 32px;
+    width: auto;
+    object-fit: contain;
+}
+
+/* Roadmap slide (step 7) - Spotlight effect on hover */
+.roadmap-phone-left {
+    transform: perspective(1200px) rotateY(15deg) rotateX(2deg) scale(0.85);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+.roadmap-phone-right {
+    transform: perspective(1200px) rotateY(-15deg) rotateX(2deg) scale(0.85);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+}
+
+/* Spotlight hover - left phones move RIGHT towards center */
+.roadmap-phone-left:hover {
+    transform: perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1.6) translateX(80px);
+    z-index: 1000;
+    filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.4));
+}
+
+/* Spotlight hover - right phones move LEFT towards center */
+.roadmap-phone-right:hover {
+    transform: perspective(1200px) rotateY(0deg) rotateX(0deg) scale(1.6) translateX(-80px);
+    z-index: 1000;
+    filter: drop-shadow(0 30px 60px rgba(0, 0, 0, 0.4));
+}
+
+.step-item {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+
+
+.step-item:hover .step-label.text-right {
+    transform: scale(1.05);
+    transform-origin: center center;
+}
+
+.step-item:hover .step-label.text-left {
+    transform: scale(1.05);
+    transform-origin: center center;
+}
+
+.step-item:hover .diamond-box {
+    transform: rotate(45deg) scale(1.15);
+    box-shadow: 0 0 20px currentColor;
+}
+
+.step-label {
+    transition: all 0.3s ease;
+}
+
+.diamond-box {
+    width: 40px;
+    height: 40px;
+    background: white;
+    border-radius: 8px;
+    transform: rotate(45deg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    flex-shrink: 0;
+}
+
+.diamond-box:hover {
+    box-shadow: 0 0 20px currentColor;
+    transform: rotate(45deg) scale(1.15);
+}
+
+@media print {
+    @page {
+        size: 13.333in 7.5in;
+        margin: 0;
+    }
+
+    html,
+    body {
+        width: 13.333in;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        -webkit-print-color-adjust: exact;
+        print-color-adjust: exact;
+    }
+
+    #presentation-container {
+        width: 13.333in;
+        height: auto;
+        position: static;
+    }
+
+    .slide {
+        position: relative;
+        inset: auto;
+        opacity: 1;
+        pointer-events: auto;
+        transform: none;
+        width: 13.333in;
+        height: 7.5in;
+        box-sizing: border-box;
+        overflow: hidden;
+        page-break-inside: avoid;
+        break-inside: avoid;
+        page-break-after: always;
+        break-after: page;
+    }
+
+    .slide:last-of-type {
+        page-break-after: auto;
+        break-after: auto;
+    }
+
+    .slide[data-step="5"] {
+        padding: 1.5rem 3rem;
+        justify-content: flex-start;
+    }
+
+    .slide[data-step="5"] .card,
+    .slide[data-step="5"] .card-flat {
+        padding: 1.5rem !important;
+    }
+
+    .slide[data-step="5"] p {
+        font-size: 1rem !important;
+        line-height: 1.45 !important;
+        margin-bottom: 0.75rem !important;
+    }
+
+    .slide[data-step="5"] .w-16.h-16 {
+        width: 3rem !important;
+        height: 3rem !important;
+        margin-bottom: 1rem !important;
+    }
+
+    .slide[data-step="5"] .w-16.h-16 svg {
+        width: 1.5rem !important;
+        height: 1.5rem !important;
+    }
+
+    .slide[data-step="5"] .h-24 {
+        height: 4.5rem !important;
+    }
+
+    .slide[data-step="5"] .gap-8 {
+        gap: 1.5rem !important;
+    }
+
+    .controls,
+    .slide-counter,
+    .progress-indicator,
+    .bg-decoration,
+    .dashboard-header-mock {
+        display: none !important;
+    }
+}

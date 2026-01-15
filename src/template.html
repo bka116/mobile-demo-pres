@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Презентация АС «ПУСК» — Мобильное приложение</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/demo4.css">
+
+</head>
+
+<body>
+
+    <!-- Progress Line -->
+    <div class="progress-indicator" id="progress"></div>
+
+    <!-- Background Ambience -->
+    <div class="bg-decoration bg-blob-1"></div>
+    <div class="bg-decoration bg-blob-2"></div>
+
+    <div id="presentation-container">
+
+        <!-- Header Mockup (Visual consistency) -->
+        <div class="dashboard-header-mock">
+            <div class="logo-area">
+                <!-- LOGO INSERTION POINT -->
+                <img src="logo.png" alt="Logo" class="logo-image" onerror="this.style.display='none'">
+                <span>АС «ПУСК»</span>
+            </div>
+            <div class="text-sm font-medium text-gray-400">Мобильная версия v1.0</div>
+        </div>
+
+        {{slides}}
+    </div>
+
+    <!-- UI Controls -->
+    <div class="slide-counter" id="counter">01 / 20</div>
+    <div class="controls">
+        <button class="control-btn" onclick="prevSlide()" title="Назад">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+            </svg>
+        </button>
+        <button class="control-btn" onclick="nextSlide()" title="Вперед">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+        </button>
+    </div>
+
+    <script src="assets/js/demo4.js"></script>
+
+</body>
+
+</html>
