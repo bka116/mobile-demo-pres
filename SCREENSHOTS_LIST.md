@@ -68,3 +68,5 @@
 После загрузки файлов в папку с презентацией, откройте `demo4.html` в браузере — изображения подгрузятся автоматически.
 
 Генерация пдф : powershell -ExecutionPolicy Bypass -File scripts\export-pdf.ps1
+
+Формирование index.html для гита : Copy-Item demo4.html -Destination index.html
