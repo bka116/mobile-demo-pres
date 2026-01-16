@@ -5,6 +5,7 @@ Requirements: Python 3
 Build:
   python scripts/build-demo4.py
   powershell -ExecutionPolicy Bypass -File scripts/export-pdf.ps1
+  powershell -ExecutionPolicy Bypass -File scripts/export-pdf.ps1 -Scale 0.82
 
 Sources:
   - src/template.html (layout with {{slides}})

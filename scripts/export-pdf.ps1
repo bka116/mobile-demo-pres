@@ -1,7 +1,15 @@
 param(
     [string]$InputPath = (Join-Path $PSScriptRoot "..\\demo4.html"),
-    [string]$OutputPath = (Join-Path $PSScriptRoot "..\\demo4.pdf")
+    [string]$OutputPath = (Join-Path $PSScriptRoot "..\\demo4.pdf"),
+    [double]$Scale = 0.85,
+    [int]$ViewportWidth = 1920,
+    [int]$ViewportHeight = 1080
 )
+
+$scaleValue = [Math]::Round($Scale, 2)
+if ($scaleValue -le 0) {
+    throw "Scale must be greater than 0."
+}
 
 $resolvedInput = Resolve-Path -Path $InputPath -ErrorAction Stop
 $outputDir = Resolve-Path -Path (Split-Path $OutputPath -Parent) -ErrorAction Stop
@@ -29,10 +37,13 @@ if (-not $browser) {
     throw "Could not find Microsoft Edge or Google Chrome."
 }
 
-& $browser --headless --disable-gpu --no-first-run --disable-extensions --print-to-pdf="$resolvedOutput" $uri
+& $browser --headless --disable-gpu --no-first-run --disable-extensions `
+    --window-size="$ViewportWidth,$ViewportHeight" `
+    --force-device-scale-factor="$scaleValue" `
+    --print-to-pdf-no-header --print-to-pdf="$resolvedOutput" $uri
 
 if (-not (Test-Path $resolvedOutput)) {
     throw "PDF export failed: $resolvedOutput"
 }
 
-Write-Host "PDF created: $resolvedOutput"
+Write-Host "PDF created: $resolvedOutput (scale $scaleValue)"

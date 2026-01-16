@@ -30,7 +30,12 @@ def build() -> None:
     if PLACEHOLDER not in template:
         raise SystemExit('Template is missing {{slides}} placeholder')
 
-    slides_content = ''.join(p.read_text(encoding='utf-8').rstrip() + '\n' for p in slide_files)
+    # Удаляем BOM (U+FEFF) из каждого слайда при чтении
+    def read_slide(path: Path) -> str:
+        content = path.read_text(encoding='utf-8-sig')  # utf-8-sig автоматически удаляет BOM
+        return content.rstrip()
+
+    slides_content = '\n'.join(read_slide(p) for p in slide_files)
     output = template.replace(PLACEHOLDER, slides_content)
 
     OUTPUT_PATH.write_text(output, encoding='utf-8')

@@ -511,87 +511,247 @@ li {
 
 @media print {
     @page {
-        size: 13.333in 7.5in;
+        size: 1920px 1080px;
         margin: 0;
+    }
+
+    * {
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
     }
 
     html,
     body {
-        width: 13.333in;
-        height: auto;
-        margin: 0;
-        overflow: visible;
-        -webkit-print-color-adjust: exact;
-        print-color-adjust: exact;
+        width: 1920px !important;
+        height: auto !important;
+        margin: 0 !important;
+        padding: 0 !important;
+        overflow: visible !important;
+        background: var(--bg-app) !important;
     }
 
     #presentation-container {
-        width: 13.333in;
-        height: auto;
-        position: static;
+        width: 1920px !important;
+        height: auto !important;
+        position: static !important;
+        overflow: visible !important;
     }
 
     .slide {
-        position: relative;
-        inset: auto;
-        opacity: 1;
-        pointer-events: auto;
-        transform: none;
-        width: 13.333in;
-        height: 7.5in;
-        box-sizing: border-box;
-        overflow: hidden;
-        page-break-inside: avoid;
-        break-inside: avoid;
-        page-break-after: always;
-        break-after: page;
+        position: relative !important;
+        inset: auto !important;
+        opacity: 1 !important;
+        pointer-events: auto !important;
+        transform: none !important;
+        width: 1920px !important;
+        height: 1080px !important;
+        min-height: 1080px !important;
+        max-height: 1080px !important;
+        box-sizing: border-box !important;
+        overflow: hidden !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        page-break-after: always !important;
+        break-after: page !important;
+        padding: 40px 80px !important;
+        display: flex !important;
+        flex-direction: column !important;
+        justify-content: center !important;
     }
 
-    .slide:last-of-type {
-        page-break-after: auto;
-        break-after: auto;
+    .slide:last-of-type,
+    .slide[data-step="19"],
+    .slide[data-step="20"] {
+        page-break-after: avoid !important;
+        break-after: avoid !important;
     }
 
-    .slide[data-step="5"] {
-        padding: 1.5rem 3rem;
-        justify-content: flex-start;
-    }
-
-    .slide[data-step="5"] .card,
-    .slide[data-step="5"] .card-flat {
-        padding: 1.5rem !important;
-    }
-
-    .slide[data-step="5"] p {
-        font-size: 1rem !important;
-        line-height: 1.45 !important;
-        margin-bottom: 0.75rem !important;
-    }
-
-    .slide[data-step="5"] .w-16.h-16 {
-        width: 3rem !important;
-        height: 3rem !important;
-        margin-bottom: 1rem !important;
-    }
-
-    .slide[data-step="5"] .w-16.h-16 svg {
-        width: 1.5rem !important;
-        height: 1.5rem !important;
-    }
-
-    .slide[data-step="5"] .h-24 {
-        height: 4.5rem !important;
-    }
-
-    .slide[data-step="5"] .gap-8 {
-        gap: 1.5rem !important;
-    }
-
+    /* Скрываем лишние элементы */
     .controls,
     .slide-counter,
     .progress-indicator,
     .bg-decoration,
     .dashboard-header-mock {
         display: none !important;
+    }
+
+    /* Мокапы телефонов - ограничение размера */
+    .phone-mockup {
+        max-height: 480px !important;
+        height: 480px !important;
+        width: auto !important;
+        min-width: 230px !important;
+        flex-shrink: 0 !important;
+    }
+
+    .phone-mockup img {
+        object-fit: cover !important;
+    }
+
+    /* Для слайдов с 3 телефонами (6, 13, 15) - уменьшаем их */
+    .slide[data-step="6"] .phone-mockup,
+    .slide[data-step="13"] .phone-mockup,
+    .slide[data-step="15"] .phone-mockup {
+        max-height: 420px !important;
+        height: 420px !important;
+    }
+
+    .slide[data-step="6"] .phone-mockup[style*="300px"],
+    .slide[data-step="13"] .phone-mockup[style*="300px"],
+    .slide[data-step="15"] .phone-mockup[style*="300px"] {
+        max-height: 480px !important;
+        height: 480px !important;
+    }
+
+    /* Слайд 7 (roadmap) - только padding */
+    .slide[data-step="7"] {
+        padding: 20px 40px !important;
+    }
+
+    /* Слайд 14 (результат) - уменьшаем мокап */
+    .slide[data-step="14"] .phone-mockup {
+        max-height: 450px !important;
+        height: 450px !important;
+    }
+
+    /* Карточки - компактнее */
+    .card-step {
+        padding: 12px 16px !important;
+    }
+
+    .card-step .w-10,
+    .card-step .w-12 {
+        width: 36px !important;
+        height: 36px !important;
+        min-width: 36px !important;
+    }
+
+    .card-step svg {
+        width: 18px !important;
+        height: 18px !important;
+    }
+
+    /* Текст - уменьшаем размеры */
+    h1 {
+        font-size: 3rem !important;
+        line-height: 1.1 !important;
+    }
+
+    h2 {
+        font-size: 1.75rem !important;
+        line-height: 1.2 !important;
+        margin-bottom: 1rem !important;
+    }
+
+    h3 {
+        font-size: 1.1rem !important;
+        margin-bottom: 0.25rem !important;
+    }
+
+    p {
+        font-size: 0.95rem !important;
+        line-height: 1.4 !important;
+    }
+
+    .text-xs {
+        font-size: 0.75rem !important;
+    }
+
+    .text-sm {
+        font-size: 0.85rem !important;
+    }
+
+    /* Слайд 5 (экосистема) */
+    .slide[data-step="5"] {
+        padding: 30px 60px !important;
+    }
+
+    .slide[data-step="5"] .card-step {
+        padding: 20px !important;
+    }
+
+    /* Слайд 18 (итог) */
+    .slide[data-step="18"] {
+        padding: 30px 60px !important;
+    }
+
+    .slide[data-step="18"] .feature-card {
+        padding: 10px 14px !important;
+    }
+
+    .slide[data-step="18"] h2 {
+        font-size: 2rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .slide[data-step="18"] h3 {
+        font-size: 1.25rem !important;
+    }
+
+    /* Слайд 19 (вектор развития) - центрирование */
+    .slide[data-step="19"] {
+        padding: 30px 60px !important;
+        justify-content: center !important;
+    }
+
+    .slide[data-step="19"] .grid-cols-3 {
+        gap: 1.5rem !important;
+    }
+
+    .slide[data-step="19"] .card-step {
+        padding: 12px 16px !important;
+        gap: 1rem !important;
+    }
+
+    .slide[data-step="19"] .w-12.h-12 {
+        width: 2.5rem !important;
+        /* 40px, как в 18-м слайде */
+        height: 2.5rem !important;
+        min-width: 2.5rem !important;
+    }
+
+    .slide[data-step="19"] h2 {
+        margin-top: 0 !important;
+        /* Сбрасываем инлайновый margin */
+        margin-bottom: 2rem !important;
+        font-size: 2rem !important;
+    }
+
+    .slide[data-step="19"] h3 {
+        font-size: 1.1rem !important;
+        margin-bottom: 0 !important;
+    }
+
+    /* Гриды - уменьшаем gap */
+    .gap-12 {
+        gap: 2rem !important;
+    }
+
+    .gap-10 {
+        gap: 1.5rem !important;
+    }
+
+    .gap-8 {
+        gap: 1.25rem !important;
+    }
+
+    .gap-6 {
+        gap: 1rem !important;
+    }
+
+    /* Анимации отключаем */
+    .fade-in-up,
+    .animate-pulse {
+        animation: none !important;
+        opacity: 1 !important;
+        transform: none !important;
+    }
+
+    /* Скрытый контент показываем */
+    .delay-100,
+    .delay-200,
+    .delay-300 {
+        opacity: 1 !important;
     }
 }
