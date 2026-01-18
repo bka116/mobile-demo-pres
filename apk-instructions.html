@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инструкция по установке APK — АС "ПУСК"</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/demo4.css">
+    <style>
+        body {
+            overflow-y: auto;
+        }
+
+        #presentation-container.apk-page {
+            height: auto;
+            min-height: 100vh;
+            padding: 6rem 4rem 4rem;
+        }
+
+        .dashboard-header-mock.apk-header {
+            position: fixed;
+            top: 1rem;
+            left: 4rem;
+            right: 4rem;
+            pointer-events: auto;
+            background: rgba(245, 247, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border-radius: 16px;
+            padding: 0.5rem 1rem;
+            z-index: 50;
+        }
+
+        .apk-page h1 {
+            font-size: 3.25rem !important;
+        }
+
+        .apk-page h2 {
+            font-size: 2.25rem !important;
+        }
+
+        .apk-text {
+            color: #6B7280 !important;
+            font-size: 1.1rem !important;
+        }
+
+        .apk-list li {
+            color: #6B7280 !important;
+            font-size: 1.05rem !important;
+        }
+
+        .apk-button {
+            background: linear-gradient(135deg, #4661EB 0%, #5B7CFF 100%);
+            color: #FFFFFF;
+            padding: 0.9rem 1.4rem;
+            border-radius: 14px;
+            font-weight: 700;
+            box-shadow: 0 18px 35px rgba(70, 97, 235, 0.25);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .apk-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 24px 45px rgba(70, 97, 235, 0.3);
+        }
+
+        .apk-link {
+            color: var(--primary);
+            font-weight: 600;
+        }
+
+        .apk-badge {
+            background: var(--primary-light);
+            color: var(--primary);
+            font-weight: 700;
+            border-radius: 999px;
+            padding: 0.3rem 0.9rem;
+            font-size: 0.85rem;
+        }
+
+        .apk-section {
+            margin-top: 3.5rem;
+        }
+
+        .apk-hero {
+            align-items: flex-start;
+        }
+
+        .apk-hero .card-step {
+            padding: 1rem;
+        }
+
+        .apk-hero h3 {
+            font-size: 1.25rem !important;
+        }
+
+        .apk-hero .apk-text,
+        .apk-hero .apk-list li {
+            font-size: 1rem !important;
+        }
+
+        .apk-hero .apk-badge {
+            font-size: 0.75rem;
+        }
+
+        .apk-hero-cards {
+            max-width: 420px;
+            margin-left: auto;
+        }
+
+        .apk-note {
+            border-left: 4px solid #93C5FD;
+            background: #F8FAFF;
+            padding: 1rem 1.25rem;
+            border-radius: 12px;
+        }
+
+        @media (max-width: 1024px) {
+            #presentation-container.apk-page {
+                padding: 7rem 2.5rem 3rem;
+            }
+
+            .dashboard-header-mock.apk-header {
+                left: 2.5rem;
+                right: 2.5rem;
+            }
+        }
+
+        @media (max-width: 640px) {
+            #presentation-container.apk-page {
+                padding: 6rem 1.25rem 3rem;
+            }
+
+            .dashboard-header-mock.apk-header {
+                left: 1.25rem;
+                right: 1.25rem;
+            }
+
+            .apk-page h1 {
+                font-size: 2.4rem !important;
+            }
+
+            .apk-page h2 {
+                font-size: 1.75rem !important;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Background Ambience -->
+    <div class="bg-decoration bg-blob-1"></div>
+    <div class="bg-decoration bg-blob-2"></div>
+
+    <div id="presentation-container" class="apk-page">
+        <div class="dashboard-header-mock apk-header">
+            <div class="logo-area">
+                <img src="logo.png" alt="Logo" class="logo-image" onerror="this.style.display='none'">
+                <span>АС «ПУСК»</span>
+            </div>
+            <div class="text-sm font-medium text-gray-400">Инструкция по установке APK</div>
+        </div>
+
+        <main class="max-w-6xl mx-auto w-full">
+            <section class="apk-hero grid grid-cols-1 lg:grid-cols-2 gap-10 items-start">
+                <div class="fade-in-up">
+                    <div
+                        class="inline-flex items-center px-3 py-1 rounded-full bg-blue-50 text-blue-600 text-sm font-semibold mb-6 border border-blue-100">
+                        Для мобильных устройств Android
+                    </div>
+                    <h1 style="line-height: 1.1;">Установка APK</h1>
+                    <p class="apk-text mt-5 mb-6 max-w-xl">
+                        Скачайте установочный файл и установите мобильное приложение АС "ПУСК" на планшет. Перед
+                        установкой необходимо разрешить установку приложений из неизвестных источников.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 items-start sm:items-center">
+                        <a class="apk-button" href="https://disk.360.yandex.ru/d/QmVWfJZsTaN-RA" target="_blank"
+                            rel="noopener noreferrer">
+                            Скачать мобильное приложение АС "ПУСК"
+                        </a>
+                        <span class="text-sm text-gray-400">Ссылка откроется в новой вкладке</span>
+                    </div>
+                    <div class="mt-4 text-sm text-gray-500">
+                        Текстовая ссылка: <a class="apk-link" href="https://disk.360.yandex.ru/d/QmVWfJZsTaN-RA"
+                            target="_blank" rel="noopener noreferrer">Скачать мобильное приложение АС "ПУСК"</a>
+                    </div>
+                    <div class="apk-note mt-6">
+                        <p class="apk-text m-0">
+                            Названия пунктов меню могут отличаться в зависимости от модели планшета и версии Android.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="apk-hero-cards fade-in-up delay-200 space-y-3">
+                    <div class="card-step">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="apk-badge">Кратко</span>
+                            <h3 class="m-0">Всего 2 шага</h3>
+                        </div>
+                        <ul class="apk-list list-disc pl-5 m-0 space-y-2">
+                            <li>Разрешите установку из неизвестных источников в настройках.</li>
+                            <li>Скачайте APK и подтвердите установку.</li>
+                            <li>Откройте приложение после установки.</li>
+                        </ul>
+                    </div>
+                    <div class="card-step">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="apk-badge">Что нужно</span>
+                            <h3 class="m-0">Подготовка</h3>
+                        </div>
+                        <ul class="apk-list list-disc pl-5 m-0 space-y-2">
+                            <li>Доступ в интернет для скачивания файла.</li>
+                            <li>Свободное место для установки приложения.</li>
+                            <li>Доступ к настройкам устройства.</li>
+                        </ul>
+                    </div>
+                    <div class="card-step">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="apk-badge">QR-код</span>
+                            <h3 class="m-0">Сканировать камерой</h3>
+                        </div>
+                        <p class="apk-text mb-3">
+                            Наведите камеру планшета на QR-код, чтобы открыть страницу загрузки на Яндекс.Диске.
+                        </p>
+                        <img src="screen_qrdownload.png" alt="QR-код для скачивания"
+                            class="w-full max-w-xs rounded-xl border border-gray-100"
+                            onerror="this.src='https://placehold.co/500x500?text=QR'">
+                        <p class="apk-text mt-3" style="font-size: 0.9rem !important;">
+                            <strong>Если QR-код не открывается:</strong> скопируйте ссылку, которую показывает камера
+                            при наведении, и вставьте её в адресную строку браузера. Либо попробуйте использовать камеру
+                            внутри браузера (значок камеры рядом с поисковой строкой).
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="apk-section">
+                <h2>Пошаговая установка</h2>
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="card-step">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="apk-badge">Шаг 1</span>
+                            <h3 class="m-0">Разрешите установку</h3>
+                        </div>
+                        <p class="apk-text mb-3">
+                            Разрешите установку приложений из неизвестных источников для браузера или файлового
+                            менеджера.
+                        </p>
+                        <ul class="apk-list list-disc pl-5 m-0 space-y-2">
+                            <li>Откройте «Настройки».</li>
+                            <li>Перейдите в раздел «Безопасность» или «Блокировка экрана и безопасность».</li>
+                            <li>Найдите «Установка неизвестных приложений» или «Неизвестные источники».</li>
+                            <li>Разрешите установку для нужного приложения (браузер или проводник).</li>
+                            <li>Если не находите пункт — используйте поиск по настройкам.</li>
+                        </ul>
+                    </div>
+                    <div class="card-step">
+                        <div class="flex items-center gap-3 mb-3">
+                            <span class="apk-badge">Шаг 2</span>
+                            <h3 class="m-0">Скачайте и установите APK</h3>
+                        </div>
+                        <p class="apk-text mb-3">
+                            Скачайте файл по ссылке и подтвердите установку.
+                        </p>
+                        <ul class="apk-list list-disc pl-5 m-0 space-y-2">
+                            <li>Откройте ссылку и скачайте APK.</li>
+                            <li>Если браузер спрашивает разрешение на сохранение — подтвердите.</li>
+                            <li>Откройте «Загрузки» или файловый менеджер и найдите файл APK.</li>
+                            <li>Нажмите на файл и выберите «Установить».</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section class="apk-section grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div class="card-step">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="apk-badge">Важно</span>
+                        <h3 class="m-0">Google Play Protect</h3>
+                    </div>
+                    <p class="apk-text mb-3">
+                        Если появляется предупреждение безопасности, это нормально для APK, скачанных не из Google Play.
+                    </p>
+                    <ul class="apk-list list-disc pl-5 m-0 space-y-2">
+                        <li>Нажмите «Все равно установить» или «Install anyway».</li>
+                        <li>В новых версиях: «Подробнее» → «Все равно установить».</li>
+                    </ul>
+                </div>
+                <div class="card-step">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="apk-badge">Совет</span>
+                        <h3 class="m-0">Если файл не открывается</h3>
+                    </div>
+                    <p class="apk-text mb-3">
+                        Иногда браузер не открывает APK автоматически — это нормально.
+                    </p>
+                    <ul class="apk-list list-disc pl-5 m-0 space-y-2">
+                        <li>Откройте «Проводник», «Файлы» или «Диспетчер загрузок».</li>
+                        <li>Найдите папку «Загрузки» (Downloads) и запустите APK оттуда.</li>
+                        <li>Проверьте папку приложения, через которое скачивали файл.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="apk-section">
+                <div class="card-step">
+                    <div class="flex items-center gap-3 mb-3">
+                        <span class="apk-badge">После установки</span>
+                        <h3 class="m-0">Рекомендуем вернуть настройки</h3>
+                    </div>
+                    <p class="apk-text m-0">
+                        Для безопасности отключите разрешение установки из неизвестных источников после завершения
+                        установки.
+                    </p>
+                </div>
+            </section>
+
+            <section class="apk-section">
+                <h2>Скриншоты для наглядности</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+                    <figure class="card-step p-4">
+                        <img src="screen_yandexdownload.png" alt="Страница Яндекс.Диска"
+                            class="w-full rounded-xl border border-gray-100"
+                            onerror="this.src='https://placehold.co/600x1200?text=Yandex+Disk'">
+                        <figcaption class="text-sm text-gray-500 mt-3">Страница Яндекс.Диска</figcaption>
+                    </figure>
+                    <figure class="card-step p-4">
+                        <img src="screen_browserlistdownload.png" alt="Список скачанных файлов"
+                            class="w-full rounded-xl border border-gray-100"
+                            onerror="this.src='https://placehold.co/600x1200?text=Downloads+List'">
+                        <figcaption class="text-sm text-gray-500 mt-3">Список файлов после скачивания APK</figcaption>
+                    </figure>
+                    <figure class="card-step p-4">
+                        <img src="screen_approved.png" alt="Разрешение установки"
+                            class="w-full rounded-xl border border-gray-100"
+                            onerror="this.src='https://placehold.co/600x1200?text=Allow'">
+                        <figcaption class="text-sm text-gray-500 mt-3">Разрешение установки из неизвестных источников
+                        </figcaption>
+                    </figure>
+                    <figure class="card-step p-4">
+                        <img src="screen_apkdownload.png" alt="Кнопка установки APK"
+                            class="w-full rounded-xl border border-gray-100"
+                            onerror="this.src='https://placehold.co/600x1200?text=Install+APK'">
+                        <figcaption class="text-sm text-gray-500 mt-3">Кнопка установки APK на устройстве</figcaption>
+                    </figure>
+                </div>
+            </section>
+        </main>
+    </div>
+</body>
+
+</html>

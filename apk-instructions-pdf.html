@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Инструкция по установке APK — АС "ПУСК"</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #4661EB;
+            --primary-light: #EEF1FF;
+            --primary-dark: #3751D8;
+            --text-dark: #1E293B;
+            --text-gray: #64748B;
+            --bg-card: #FFFFFF;
+            --border-light: #E2E8F0;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', 'Inter', -apple-system, sans-serif;
+            background: linear-gradient(135deg, #F8FAFF 0%, #EEF2FF 50%, #F0F4FF 100%);
+            color: var(--text-dark);
+            line-height: 1.6;
+            font-size: 14px;
+        }
+
+        /* PDF Page Setup - A4 format */
+        .pdf-page {
+            width: 100%;
+            min-height: 100vh;
+            padding: 40px 50px;
+            background: linear-gradient(135deg, #F8FAFF 0%, #EEF2FF 50%, #F0F4FF 100%);
+            page-break-after: always;
+            position: relative;
+        }
+
+        .pdf-page:last-child {
+            page-break-after: avoid;
+        }
+
+        /* Header */
+        .page-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 12px 20px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 12px;
+            box-shadow: 0 2px 12px rgba(70, 97, 235, 0.08);
+            margin-bottom: 30px;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-area img {
+            width: 32px;
+            height: 32px;
+        }
+
+        .logo-area span {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+
+        .header-label {
+            font-size: 0.85rem;
+            color: var(--text-gray);
+            font-weight: 500;
+        }
+
+        /* Typography */
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--text-dark);
+            line-height: 1.2;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        /* Title with badge style */
+        .title-with-badge {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 24px;
+        }
+
+        .title-badge {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-weight: 700;
+            border-radius: 999px;
+            padding: 6px 14px;
+            font-size: 0.85rem;
+        }
+
+        .title-with-badge h1,
+        .title-with-badge h2 {
+            margin: 0;
+        }
+
+        h3 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--text-dark);
+            margin: 0;
+        }
+
+        /* Cards */
+        .card {
+            background: var(--bg-card);
+            border-radius: 16px;
+            padding: 20px;
+            box-shadow: 0 4px 20px rgba(70, 97, 235, 0.08);
+            border: 1px solid rgba(70, 97, 235, 0.06);
+        }
+
+        .card-compact {
+            padding: 16px;
+        }
+
+        /* Badges */
+        .badge {
+            display: inline-block;
+            background: var(--primary-light);
+            color: var(--primary);
+            font-weight: 700;
+            border-radius: 999px;
+            padding: 4px 12px;
+            font-size: 0.75rem;
+        }
+
+        .badge-android {
+            background: linear-gradient(135deg, #E0F2FE 0%, #BAE6FD 100%);
+            color: #0284C7;
+            border: 1px solid #7DD3FC;
+        }
+
+        /* Lists */
+        .list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .list li {
+            position: relative;
+            padding-left: 20px;
+            margin-bottom: 8px;
+            color: var(--text-gray);
+            font-size: 0.9rem;
+        }
+
+        .list li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 8px;
+            width: 6px;
+            height: 6px;
+            background: var(--primary);
+            border-radius: 50%;
+        }
+
+        /* Button */
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: linear-gradient(135deg, #4661EB 0%, #5B7CFF 100%);
+            color: #FFFFFF;
+            padding: 12px 20px;
+            border-radius: 12px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            box-shadow: 0 8px 24px rgba(70, 97, 235, 0.25);
+        }
+
+        /* Note box */
+        .note-box {
+            border-left: 4px solid #93C5FD;
+            background: rgba(239, 246, 255, 0.8);
+            padding: 12px 16px;
+            border-radius: 0 12px 12px 0;
+            font-size: 0.85rem;
+            color: var(--text-gray);
+        }
+
+        /* Grid layouts */
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+        }
+
+        .grid-3 {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .grid-4 {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+        }
+
+        /* Hero section */
+        .hero-content {
+            max-width: 55%;
+        }
+
+        .hero-cards {
+            max-width: 42%;
+        }
+
+        .hero-layout {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 30px;
+        }
+
+        .hero-text {
+            color: var(--text-gray);
+            font-size: 0.95rem;
+            margin-bottom: 20px;
+            max-width: 480px;
+        }
+
+        .link-text {
+            font-size: 0.8rem;
+            color: var(--text-gray);
+            margin-top: 12px;
+        }
+
+        .link-text a {
+            color: var(--primary);
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        /* QR code */
+        .qr-image {
+            width: 100%;
+            max-width: 140px;
+            border-radius: 12px;
+            border: 1px solid var(--border-light);
+        }
+
+        /* Card header with badge */
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+
+        /* Screenshots */
+        .screenshot-card {
+            background: var(--bg-card);
+            border-radius: 12px;
+            padding: 12px;
+            box-shadow: 0 2px 12px rgba(70, 97, 235, 0.06);
+            border: 1px solid rgba(70, 97, 235, 0.04);
+            text-align: center;
+        }
+
+        .screenshot-card img {
+            width: 100%;
+            height: auto;
+            max-height: 280px;
+            object-fit: contain;
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+        }
+
+        .screenshot-card figcaption {
+            font-size: 0.75rem;
+            color: var(--text-gray);
+            margin-top: 8px;
+        }
+
+        /* Page numbers */
+        .page-number {
+            position: absolute;
+            bottom: 20px;
+            right: 50px;
+            font-size: 0.75rem;
+            color: var(--text-gray);
+        }
+
+        /* Section spacing */
+        .section {
+            margin-bottom: 24px;
+        }
+
+        .section:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Spacing utilities */
+        .mb-sm {
+            margin-bottom: 8px;
+        }
+
+        .mb-md {
+            margin-bottom: 16px;
+        }
+
+        .mb-lg {
+            margin-bottom: 24px;
+        }
+
+        .mt-sm {
+            margin-top: 8px;
+        }
+
+        .mt-md {
+            margin-top: 16px;
+        }
+
+        /* Page 2 smaller font */
+        .page-2 h2 {
+            font-size: 1.5rem;
+            margin-bottom: 14px;
+        }
+
+        .page-2 .card {
+            padding: 14px;
+        }
+
+        .page-2 h3 {
+            font-size: 0.95rem;
+        }
+
+        .page-2 .list li {
+            font-size: 0.8rem;
+            margin-bottom: 5px;
+            padding-left: 16px;
+        }
+
+        .page-2 .list li::before {
+            top: 6px;
+            width: 5px;
+            height: 5px;
+        }
+
+        .page-2 p {
+            font-size: 0.8rem !important;
+            margin-bottom: 8px !important;
+        }
+
+        .page-2 .section {
+            margin-bottom: 16px;
+        }
+
+        .page-2 .grid-2 {
+            gap: 16px;
+        }
+
+        /* Print specific styles - hide browser headers/footers */
+        @page {
+            margin: 0;
+        }
+
+        @media print {
+            body {
+                -webkit-print-color-adjust: exact !important;
+                print-color-adjust: exact !important;
+            }
+
+            .pdf-page {
+                page-break-after: always;
+                page-break-inside: avoid;
+            }
+
+            .pdf-page:last-child {
+                page-break-after: avoid;
+            }
+
+            .card,
+            .screenshot-card {
+                break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- PAGE 1: Установка APK + Три блока -->
+    <div class="pdf-page">
+        <header class="page-header">
+            <div class="logo-area">
+                <img src="logo.png" alt="Logo" onerror="this.style.display='none'">
+                <span>АС «ПУСК»</span>
+            </div>
+            <div class="header-label">Инструкция по установке APK</div>
+        </header>
+
+        <div class="hero-layout">
+            <div class="hero-content">
+                <div class="badge badge-android mb-md">Для мобильных устройств Android</div>
+                <div class="title-with-badge">
+                    <span class="title-badge">Установка APK</span>
+                    <h1></h1>
+                </div>
+                <p class="hero-text">
+                    Скачайте установочный файл и установите мобильное приложение АС "ПУСК" на планшет.
+                    Перед установкой необходимо разрешить установку приложений из неизвестных источников.
+                </p>
+                <a class="btn-primary" href="https://disk.360.yandex.ru/d/QmVWfJZsTaN-RA" target="_blank">
+                    Скачать мобильное приложение АС "ПУСК"
+                </a>
+                <div class="link-text">
+                    Текстовая ссылка: <a href="https://disk.360.yandex.ru/d/QmVWfJZsTaN-RA" target="_blank">Скачать
+                        мобильное приложение АС "ПУСК"</a>
+                </div>
+                <div class="note-box mt-md">
+                    Названия пунктов меню могут отличаться в зависимости от модели планшета и версии Android.
+                </div>
+            </div>
+
+            <div class="hero-cards" style="display: flex; flex-direction: column; gap: 14px;">
+                <div class="card card-compact">
+                    <div class="card-header">
+                        <span class="badge">Кратко</span>
+                        <h3>Всего 2 шага</h3>
+                    </div>
+                    <ul class="list">
+                        <li>Разрешите установку из неизвестных источников в настройках</li>
+                        <li>Скачайте APK и подтвердите установку</li>
+                        <li>Откройте приложение после установки</li>
+                    </ul>
+                </div>
+
+                <div class="card card-compact">
+                    <div class="card-header">
+                        <span class="badge">Что нужно</span>
+                        <h3>Подготовка</h3>
+                    </div>
+                    <ul class="list">
+                        <li>Доступ в интернет для скачивания файла</li>
+                        <li>Свободное место для установки приложения</li>
+                        <li>Доступ к настройкам устройства</li>
+                    </ul>
+                </div>
+
+                <div class="card card-compact">
+                    <div class="card-header">
+                        <span class="badge">QR-код</span>
+                        <h3>Сканировать камерой</h3>
+                    </div>
+                    <p style="font-size: 0.85rem; color: var(--text-gray); margin-bottom: 10px;">
+                        Наведите камеру планшета на QR-код, чтобы открыть страницу загрузки.
+                    </p>
+                    <img src="screen_qrdownload.png" alt="QR-код" class="qr-image"
+                        onerror="this.src='https://placehold.co/140x140/EEF1FF/4661EB?text=QR'">
+                    <p style="font-size: 0.75rem; color: var(--text-gray); margin-top: 8px;">
+                        <strong>Если QR-код не открывается:</strong> скопируйте ссылку и вставьте в адресную строку
+                        браузера, либо используйте камеру внутри браузера.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="page-number">Страница 1 из 3</div>
+    </div>
+
+    <!-- PAGE 2: Пошаговая установка -->
+    <div class="pdf-page page-2">
+        <header class="page-header">
+            <div class="logo-area">
+                <img src="logo.png" alt="Logo" onerror="this.style.display='none'">
+                <span>АС «ПУСК»</span>
+            </div>
+            <div class="header-label">Пошаговая установка</div>
+        </header>
+
+        <h2>Пошаговая установка</h2>
+
+        <div class="grid-2 section">
+            <div class="card">
+                <div class="card-header">
+                    <span class="badge">Шаг 1</span>
+                    <h3>Разрешите установку</h3>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-gray); margin-bottom: 12px;">
+                    Разрешите установку приложений из неизвестных источников для браузера или файлового менеджера.
+                </p>
+                <ul class="list">
+                    <li>Откройте «Настройки»</li>
+                    <li>Перейдите в раздел «Безопасность» или «Блокировка экрана и безопасность»</li>
+                    <li>Найдите «Установка неизвестных приложений» или «Неизвестные источники»</li>
+                    <li>Разрешите установку для нужного приложения (браузер или проводник)</li>
+                    <li>Если не находите пункт — используйте поиск по настройкам</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <span class="badge">Шаг 2</span>
+                    <h3>Скачайте и установите APK</h3>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-gray); margin-bottom: 12px;">
+                    Скачайте файл по ссылке и подтвердите установку.
+                </p>
+                <ul class="list">
+                    <li>Откройте ссылку и скачайте APK</li>
+                    <li>Если браузер спрашивает разрешение на сохранение — подтвердите</li>
+                    <li>Откройте «Загрузки» или файловый менеджер и найдите файл APK</li>
+                    <li>Нажмите на файл и выберите «Установить»</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="grid-2 section">
+            <div class="card">
+                <div class="card-header">
+                    <span class="badge">Важно</span>
+                    <h3>Google Play Protect</h3>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-gray); margin-bottom: 12px;">
+                    Если появляется предупреждение безопасности, это нормально для APK, скачанных не из Google Play.
+                </p>
+                <ul class="list">
+                    <li>Нажмите «Все равно установить» или «Install anyway»</li>
+                    <li>В новых версиях: «Подробнее» → «Все равно установить»</li>
+                </ul>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <span class="badge">Совет</span>
+                    <h3>Если файл не открывается</h3>
+                </div>
+                <p style="font-size: 0.85rem; color: var(--text-gray); margin-bottom: 12px;">
+                    Иногда браузер не открывает APK автоматически — это нормально.
+                </p>
+                <ul class="list">
+                    <li>Откройте «Проводник», «Файлы» или «Диспетчер загрузок»</li>
+                    <li>Найдите папку «Загрузки» (Downloads) и запустите APK оттуда</li>
+                    <li>Проверьте папку приложения, через которое скачивали файл</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="card section">
+            <div class="card-header">
+                <span class="badge">После установки</span>
+                <h3>Рекомендуем вернуть настройки</h3>
+            </div>
+            <p style="font-size: 0.9rem; color: var(--text-gray);">
+                Для безопасности отключите разрешение установки из неизвестных источников после завершения установки.
+            </p>
+        </div>
+
+        <div class="page-number">Страница 2 из 3</div>
+    </div>
+
+    <!-- PAGE 3: Скриншоты для наглядности -->
+    <div class="pdf-page">
+        <header class="page-header">
+            <div class="logo-area">
+                <img src="logo.png" alt="Logo" onerror="this.style.display='none'">
+                <span>АС «ПУСК»</span>
+            </div>
+            <div class="header-label">Скриншоты для наглядности</div>
+        </header>
+
+        <div class="title-with-badge" style="margin-bottom: 28px;">
+            <span class="title-badge">Скриншоты для наглядности</span>
+            <h2></h2>
+        </div>
+
+        <div class="grid-4">
+            <figure class="screenshot-card">
+                <img src="screen_yandexdownload.png" alt="Страница Яндекс.Диска"
+                    onerror="this.src='https://placehold.co/400x800/F8FAFF/4661EB?text=Yandex+Disk'">
+                <figcaption>Страница Яндекс.Диска</figcaption>
+            </figure>
+
+            <figure class="screenshot-card">
+                <img src="screen_browserlistdownload.png" alt="Список скачанных файлов"
+                    onerror="this.src='https://placehold.co/400x800/F8FAFF/4661EB?text=Downloads'">
+                <figcaption>Список файлов после скачивания APK</figcaption>
+            </figure>
+
+            <figure class="screenshot-card">
+                <img src="screen_approved.png" alt="Разрешение установки"
+                    onerror="this.src='https://placehold.co/400x800/F8FAFF/4661EB?text=Allow'">
+                <figcaption>Разрешение установки из неизвестных источников</figcaption>
+            </figure>
+
+            <figure class="screenshot-card">
+                <img src="screen_apkdownload.png" alt="Кнопка установки APK"
+                    onerror="this.src='https://placehold.co/400x800/F8FAFF/4661EB?text=Install'">
+                <figcaption>Кнопка установки APK на устройстве</figcaption>
+            </figure>
+        </div>
+
+        <div class="note-box" style="text-align: center; margin-top: 40px;">
+            <strong>Готово!</strong> После установки найдите приложение АС "ПУСК" на рабочем столе планшета и откройте
+            его.
+        </div>
+
+        <div class="page-number">Страница 3 из 3</div>
+    </div>
+</body>
+
+</html>

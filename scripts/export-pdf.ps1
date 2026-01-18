@@ -29,21 +29,40 @@ $chromeCandidates = @(
 ) | Where-Object { $_ -and (Test-Path $_) } | Select-Object -Unique
 
 $browser = $edgeCandidates | Select-Object -First 1
-if (-not $browser) {
-    $browser = $chromeCandidates | Select-Object -First 1
-}
-
-if (-not $browser) {
+if (-not $browser -and -not $chromeCandidates) {
     throw "Could not find Microsoft Edge or Google Chrome."
 }
 
-& $browser --headless --disable-gpu --no-first-run --disable-extensions `
-    --window-size="$ViewportWidth,$ViewportHeight" `
-    --force-device-scale-factor="$scaleValue" `
-    --print-to-pdf-no-header --print-to-pdf="$resolvedOutput" $uri
+function Invoke-PdfExport {
+    param(
+        [string]$BrowserPath
+    )
 
-if (-not (Test-Path $resolvedOutput)) {
-    throw "PDF export failed: $resolvedOutput"
+    & $BrowserPath --headless --disable-gpu --no-first-run --disable-extensions `
+        --window-size="$ViewportWidth,$ViewportHeight" `
+        --force-device-scale-factor="$scaleValue" `
+        --print-to-pdf-no-header --print-to-pdf="$resolvedOutput" $uri
+
+    return Test-Path $resolvedOutput
 }
 
-Write-Host "PDF created: $resolvedOutput (scale $scaleValue)"
+$tried = @()
+if ($browser) {
+    $tried += $browser
+    if (Invoke-PdfExport -BrowserPath $browser) {
+        Write-Host "PDF created: $resolvedOutput (scale $scaleValue)"
+        return
+    }
+}
+
+$fallback = $chromeCandidates | Select-Object -First 1
+if ($fallback -and -not (Test-Path $resolvedOutput)) {
+    $tried += $fallback
+    if (Invoke-PdfExport -BrowserPath $fallback) {
+        Write-Host "PDF created: $resolvedOutput (scale $scaleValue)"
+        return
+    }
+}
+
+$triedList = ($tried | ForEach-Object { Split-Path $_ -Leaf }) -join ", "
+throw "PDF export failed: $resolvedOutput (tried: $triedList)"
