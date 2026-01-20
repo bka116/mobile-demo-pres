@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="ru" class="fonts-loading">
 
 <head>
     <meta charset="UTF-8">
@@ -115,12 +115,13 @@
             align-items: center;
             justify-content: center;
             z-index: 2;
+            transition: opacity 0.2s ease;
         }
 
         .brand {
             position: absolute;
-            top: clamp(18px, 3vw, 36px);
-            left: clamp(20px, 4vw, 48px);
+            top: 36px;
+            left: 48px;
             display: flex;
             align-items: center;
             gap: 12px;
@@ -131,11 +132,25 @@
             box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1);
             backdrop-filter: blur(10px);
             z-index: 3;
+            transition: opacity 0.2s ease;
         }
 
         .brand img {
+            width: 32px;
             height: 28px;
-            width: auto;
+            object-fit: contain;
+            display: block;
+            flex-shrink: 0;
+        }
+
+        .fonts-loading .frame,
+        .fonts-loading .brand {
+            opacity: 0;
+        }
+
+        .fonts-ready .frame,
+        .fonts-ready .brand {
+            opacity: 1;
         }
 
         .brand-name {
@@ -479,6 +494,11 @@
         }
 
         @media (max-width: 1080px) {
+            .brand {
+                top: 22px;
+                left: 24px;
+            }
+
             .scene {
                 flex-direction: column;
                 text-align: center;
@@ -765,6 +785,18 @@
     </div>
 
     <script>
+        const root = document.documentElement;
+        const fontReady = () => {
+            root.classList.remove("fonts-loading");
+            root.classList.add("fonts-ready");
+        };
+
+        if (document.fonts && document.fonts.ready) {
+            document.fonts.ready.then(fontReady).catch(fontReady);
+        } else {
+            fontReady();
+        }
+
         const scenes = Array.from(document.querySelectorAll(".scene"));
         const progress = document.getElementById("progress");
         const durations = scenes.map((scene) => Number(scene.dataset.duration) || 6);

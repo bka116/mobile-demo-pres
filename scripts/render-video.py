@@ -32,7 +32,6 @@ def main():
     mp4_path = out_dir / args.mp4
     webm_path = out_dir / (Path(args.mp4).stem + ".webm")
     url = html_path.as_uri() + "?once=1"
-
     try:
         from playwright.sync_api import sync_playwright
     except ImportError:
