@@ -157,10 +157,12 @@
         .scene {
             position: absolute;
             inset: 0;
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+            display: flex;
+            flex-direction: row;
             align-items: center;
-            gap: clamp(12px, 2.6vw, 52px);
+            justify-content: center;
+            gap: clamp(24px, 4vw, 60px);
+            padding: clamp(40px, 5vw, 80px);
             opacity: 0;
             transform: translateY(18px) scale(0.985);
             transition: opacity 0.7s ease, transform 0.7s ease;
@@ -173,25 +175,38 @@
             z-index: 4;
         }
 
-        .scene.reverse .copy {
-            order: 2;
-            justify-self: start;
-        }
-
-        .scene.reverse .mockup {
-            order: 1;
-            justify-self: end;
+        .scene.reverse {
+            flex-direction: row-reverse;
         }
 
         .scene.center {
-            grid-template-columns: 1fr;
+            flex-direction: column;
             text-align: center;
-            justify-items: center;
+        }
+
+        .scene.wide-gap {
+            gap: clamp(40px, 6vw, 100px);
+        }
+
+        .scene.tight-gap {
+            gap: clamp(16px, 2.5vw, 40px);
         }
 
         .copy {
-            max-width: 560px;
-            justify-self: end;
+            max-width: 520px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .scene.reverse .copy {
+            align-items: flex-end;
+            text-align: right;
+        }
+
+        .scene.center .copy {
+            align-items: center;
+            text-align: center;
         }
 
         .kicker {
@@ -239,27 +254,6 @@
             max-width: 560px;
         }
 
-        .hero-pill {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            padding: 6px 12px;
-            border-radius: 999px;
-            background: rgba(70, 97, 235, 0.12);
-            border: 1px solid rgba(70, 97, 235, 0.25);
-            color: #0f172a;
-            font-size: 0.75rem;
-            font-weight: 700;
-            margin-bottom: 18px;
-        }
-
-        .hero-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 999px;
-            background: var(--accent);
-        }
-
         .hero-title {
             font-family: "Unbounded", sans-serif;
             font-weight: 700;
@@ -270,8 +264,9 @@
         }
 
         .hero-accent {
-            background: linear-gradient(120deg, #4661eb 0%, #6f82ff 55%, #8aa7ff 100%);
+            background: linear-gradient(180deg, #8aa7ff 0%, #6f82ff 45%, #4661eb 100%);
             -webkit-background-clip: text;
+            background-clip: text;
             color: transparent;
         }
 
@@ -313,29 +308,41 @@
             flex-direction: column;
             align-items: center;
             justify-content: center;
-            position: relative;
-            justify-self: start;
         }
 
         .mockup-item {
-            position: relative;
             display: flex;
             flex-direction: column;
             align-items: center;
+            transform-origin: center center;
         }
 
-        .mockup-item,
         .phone-mockup {
             transform-origin: center center;
+            /* GPU acceleration & anti-jitter */
             backface-visibility: hidden;
-            transform-style: preserve-3d;
+            -webkit-backface-visibility: hidden;
+            transform: translateZ(0) scale(1);
+            -webkit-transform: translateZ(0) scale(1);
             will-change: transform;
+            /* Prevent sub-pixel rendering issues */
+            -webkit-font-smoothing: subpixel-antialiased;
+            perspective: 1000px;
+            /* Proper aspect ratio for mobile screens (9:19.5) */
+            aspect-ratio: 9 / 19.5;
+            overflow: hidden;
         }
 
         .phone-mockup img,
         .phone-mockup video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center top;
             backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
             transform: translateZ(0);
+            border-radius: 28px;
         }
 
         /* New styled label above mockup */
@@ -369,15 +376,14 @@
         }
 
         .mockup .phone-mockup {
-            width: clamp(240px, 26vw, 320px) !important;
-            height: clamp(460px, 70vh, 620px) !important;
-            border-width: 7px !important;
-            border-radius: 36px !important;
-            cursor: default !important;
-            border-color: #0b1220 !important;
+            /* Width-based sizing, height auto from aspect-ratio */
+            width: clamp(240px, 22vw, 290px);
+            height: auto;
+            border: 8px solid #0b1220;
+            border-radius: 40px;
+            cursor: default;
             background: #0b1220;
             box-shadow: var(--shadow-strong), 0 0 0 1px rgba(70, 97, 235, 0.25);
-            transition: none;
             z-index: 1;
         }
 
@@ -394,15 +400,15 @@
         }
 
         .mockup-row .phone-mockup {
-            width: clamp(190px, 20vw, 250px) !important;
-            height: clamp(360px, 52vh, 480px) !important;
-            border-width: 6px !important;
-            border-color: #0b1220 !important;
+            width: clamp(160px, 16vw, 210px);
+            height: auto;
+            border-width: 6px;
         }
 
         .mockup-row .phone-mockup.is-main {
-            width: clamp(210px, 22vw, 280px) !important;
-            height: clamp(390px, 56vh, 520px) !important;
+            width: clamp(180px, 19vw, 250px);
+            height: auto;
+            border-width: 7px;
         }
 
         .phone-mockup:hover {
@@ -410,32 +416,9 @@
             box-shadow: var(--shadow-strong) !important;
         }
 
-        .scene.is-active[data-zoom="in"] .phone-mockup {
-            animation: slowZoomIn var(--scene-duration) ease-in-out both;
-        }
-
+        .scene.is-active[data-zoom="in"] .phone-mockup,
         .scene.is-active[data-zoom="out"] .phone-mockup {
-            animation: slowZoomOut var(--scene-duration) ease-in-out both;
-        }
-
-        @keyframes slowZoomIn {
-            from {
-                transform: translateZ(0) scale(0.98);
-            }
-
-            to {
-                transform: translateZ(0) scale(1.05);
-            }
-        }
-
-        @keyframes slowZoomOut {
-            from {
-                transform: translateZ(0) scale(1.05);
-            }
-
-            to {
-                transform: translateZ(0) scale(0.98);
-            }
+            animation: none;
         }
 
         .progress {
@@ -497,22 +480,23 @@
 
         @media (max-width: 1080px) {
             .scene {
-                grid-template-columns: 1fr;
+                flex-direction: column;
                 text-align: center;
+                gap: 32px;
+            }
+
+            .scene.reverse {
+                flex-direction: column;
             }
 
             .copy {
-                margin: 0 auto;
-                justify-self: center;
+                align-items: center;
+                text-align: center;
             }
 
-            .mockup {
-                justify-self: center;
-            }
-
-            .scene.reverse .copy,
-            .scene.reverse .mockup {
-                order: unset;
+            .scene.reverse .copy {
+                align-items: center;
+                text-align: center;
             }
 
             .chip-row {
@@ -549,10 +533,7 @@
         <div class="frame">
             <section class="scene scene-hero is-active" data-duration="6" data-zoom="in">
                 <div class="copy">
-                    <div class="hero-pill">
-                        <span class="hero-dot"></span>
-                        Онлайн-версия
-                    </div>
+                    <div class="kicker">Онлайн-версия</div>
                     <h1 class="hero-title">Мобильное<br><span class="hero-accent">приложение<br><span
                                 class="hero-subline">ПУСК</span></span></h1>
                     <p class="hero-sub">Инструмент для работы инспектора непосредственно на объекте строительного
@@ -573,16 +554,16 @@
             <section class="scene reverse" data-duration="6" data-zoom="out">
                 <div class="copy">
                     <div class="kicker">Динамика</div>
-                    <div class="headline">Сценарий в движении</div>
-                    <div class="sub">Никаких слов — только реальная работа приложения.</div>
+                    <div class="headline">Инспекция в движении</div>
+                    <div class="sub">Удобное создание проверок и нарушений</div>
                     <div class="chip-row">
-                        <span class="chip">Скринкаст</span>
+                        <span class="chip">Скорость</span>
                         <span class="chip">Живой интерфейс</span>
                     </div>
                 </div>
                 <div class="mockup">
                     <div class="mockup-item">
-                        <div class="label">Видео</div>
+                        <div class="label">Формирование проверки</div>
                         <div class="phone-mockup">
                             <div class="phone-notch"></div>
                             <video src="screencast.mp4" autoplay loop muted playsinline preload="auto"></video>
@@ -593,9 +574,9 @@
 
             <section class="scene" data-duration="6" data-zoom="in">
                 <div class="copy">
-                    <div class="kicker">Полевой режим</div>
+                    <div class="kicker">"Полевой" режим</div>
                     <div class="headline">Инспектор не привязан к офису</div>
-                    <div class="sub">Все действия фиксируются сразу на объекте.</div>
+                    <div class="sub">Все действия фиксируются сразу на объекте</div>
                     <div class="chip-row">
                         <span class="chip">Экономия времени</span>
                         <span class="chip">Без дублей</span>
@@ -603,7 +584,7 @@
                 </div>
                 <div class="mockup">
                     <div class="mockup-item">
-                        <div class="label">Работа в поле</div>
+                        <div class="label">Работа на объекте</div>
                         <div class="phone-mockup">
                             <div class="phone-notch"></div>
                             <video src="screen_field_work.mp4" poster="screen_field_work.png" autoplay loop muted
@@ -616,16 +597,16 @@
             <section class="scene reverse" data-duration="5" data-zoom="out">
                 <div class="copy">
                     <div class="kicker">Объекты</div>
-                    <div class="headline">Реестр всегда под рукой</div>
-                    <div class="sub">Быстрый доступ к списку объектов контроля.</div>
+                    <div class="headline">Реестры всегда под рукой</div>
+                    <div class="sub">Быстрый доступ к реестрам внутри системы</div>
                     <div class="chip-row">
-                        <span class="chip">ОКС</span>
+                        <span class="chip">ОСК</span>
                         <span class="chip">Быстрый поиск</span>
                     </div>
                 </div>
                 <div class="mockup">
                     <div class="mockup-item">
-                        <div class="label">Список объектов</div>
+                        <div class="label">Реестры системы</div>
                         <div class="phone-mockup">
                             <div class="phone-notch"></div>
                             <video src="screen_objects.mp4" poster="screen_objects.png" autoplay loop muted playsinline
@@ -638,8 +619,8 @@
             <section class="scene" data-duration="5" data-zoom="in">
                 <div class="copy">
                     <div class="kicker">Проверки</div>
-                    <div class="headline">Старт в один тап</div>
-                    <div class="sub">Открывайте и ведите проверки прямо в приложении.</div>
+                    <div class="headline">Старт в пару нажатий</div>
+                    <div class="sub">Открывайте и ведите проверки прямо в приложении</div>
                     <div class="chip-row">
                         <span class="chip">Контроль</span>
                         <span class="chip">Статусы</span>
@@ -657,14 +638,14 @@
                 </div>
             </section>
 
-            <section class="scene reverse" data-duration="5" data-zoom="out">
+            <section class="scene reverse tight-gap" data-duration="5" data-zoom="out">
                 <div class="copy">
                     <div class="kicker">Нарушения</div>
-                    <div class="headline">Фиксация дефектов</div>
-                    <div class="sub">Список нарушений и быстрый доступ к деталям.</div>
+                    <div class="headline">Фиксация замечаний</div>
+                    <div class="sub">Список нарушений и быстрый доступ к деталям</div>
                     <div class="chip-row">
                         <span class="chip">Контроль качества</span>
-                        <span class="chip">Факты</span>
+                        <span class="chip">Фотоматериалы</span>
                     </div>
                 </div>
                 <div class="mockup">
@@ -679,11 +660,11 @@
                 </div>
             </section>
 
-            <section class="scene" data-duration="6" data-zoom="in">
+            <section class="scene wide-gap" data-duration="6" data-zoom="in">
                 <div class="copy">
                     <div class="kicker">Карточка нарушения</div>
                     <div class="headline">Поля, сроки, ответственность</div>
-                    <div class="sub">Минимум шагов, максимум фиксации на месте.</div>
+                    <div class="sub">Минимум шагов, максимум работы на месте</div>
                     <div class="chip-row">
                         <span class="chip">Описание</span>
                         <span class="chip">Срок устранения</span>
@@ -691,7 +672,7 @@
                 </div>
                 <div class="mockup">
                     <div class="mockup-item">
-                        <div class="label">Карточка</div>
+                        <div class="label">Заполнение атрибутов</div>
                         <div class="phone-mockup">
                             <div class="phone-notch"></div>
                             <video src="screen_violation.mp4" poster="screen_violation.png" autoplay loop muted
@@ -705,16 +686,16 @@
                 <div class="copy">
                     <div class="kicker">Фотофиксация</div>
                     <div class="headline">Камера, галерея, редактор</div>
-                    <div class="sub">Доказательства в один поток — от съемки до правки.</div>
+                    <div class="sub">Доказательства в один цикл — от съемки до устранения</div>
                     <div class="chip-row">
                         <span class="chip">Фото</span>
                         <span class="chip">Редактор</span>
-                        <span class="chip">История</span>
+                        <span class="chip">Галерея</span>
                     </div>
                 </div>
                 <div class="mockup">
                     <div class="mockup-row">
-                        <div class="label">Фотофиксация</div>
+                        <div class="label">Фотоматериалы</div>
                         <div class="mockup-row-phones">
                             <div class="phone-mockup">
                                 <div class="phone-notch"></div>
@@ -738,7 +719,7 @@
                 <div class="copy">
                     <div class="kicker">Документы и уведомления</div>
                     <div class="headline">Всё под рукой</div>
-                    <div class="sub">Оперативные документы и мгновенные статусы.</div>
+                    <div class="sub">Оперативные документы и мгновенные уведомления</div>
                     <div class="chip-row">
                         <span class="chip">Документы</span>
                         <span class="chip">Уведомления</span>
@@ -769,10 +750,10 @@
                         <img src="logo.png" alt="АС ПУСК">
                     </div>
                     <div class="headline">Готово к работе</div>
-                    <div class="sub">Мобильное приложение АС "ПУСК" для контроля на объекте.</div>
+                    <div class="sub">Мобильное приложение АС "ПУСК" для работы инспекторов на объектах строительного контроля</div>
                     <div class="closing-meta">
                         <span class="chip">Сейчас доступно</span>
-                        <span class="chip">1 минута — и вы всё видите</span>
+                        <span class="chip">Онлайн-версия</span>
                     </div>
                 </div>
             </section>
