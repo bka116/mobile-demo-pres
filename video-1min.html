@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>АС "ПУСК" — видео на 1 минуту</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="assets/css/demo4.css">
     <style>
         :root {
@@ -307,6 +310,8 @@
 
         .mockup {
             display: flex;
+            flex-direction: column;
+            align-items: center;
             justify-content: center;
             position: relative;
             justify-self: start;
@@ -314,6 +319,9 @@
 
         .mockup-item {
             position: relative;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .mockup-item,
@@ -330,23 +338,34 @@
             transform: translateZ(0);
         }
 
-        .badge {
-            position: absolute;
-            top: -16px;
-            right: -4px;
-            z-index: 6;
-            padding: 6px 12px;
-            border-radius: 999px;
-            background: linear-gradient(135deg, rgba(70, 97, 235, 0.95), rgba(111, 130, 255, 0.95));
-            border: 1px solid rgba(255, 255, 255, 0.35);
-            font-size: 0.65rem;
+        /* New styled label above mockup */
+        .label {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 14px 24px;
+            margin-bottom: 20px;
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.85);
+            border: 1px solid rgba(148, 163, 184, 0.35);
+            backdrop-filter: blur(16px);
+            box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12);
+            font-family: "Unbounded", sans-serif;
+            font-size: 0.9rem;
             font-weight: 600;
-            color: #f8fafc;
-            box-shadow: 0 12px 30px rgba(70, 97, 235, 0.32), 0 4px 12px rgba(15, 23, 42, 0.18);
-            text-shadow: 0 2px 8px rgba(15, 23, 42, 0.35);
-            text-transform: uppercase;
-            letter-spacing: 0.08em;
-            backdrop-filter: blur(8px);
+            color: var(--ink);
+            white-space: nowrap;
+            z-index: 10;
+        }
+
+        .label::before {
+            content: "";
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--accent), var(--accent-2));
+            box-shadow: 0 0 12px rgba(70, 97, 235, 0.35);
+            flex-shrink: 0;
         }
 
         .mockup .phone-mockup {
@@ -363,6 +382,12 @@
         }
 
         .mockup-row {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .mockup-row-phones {
             display: flex;
             align-items: center;
             gap: clamp(16px, 2.5vw, 32px);
@@ -397,6 +422,7 @@
             from {
                 transform: translateZ(0) scale(0.98);
             }
+
             to {
                 transform: translateZ(0) scale(1.05);
             }
@@ -406,6 +432,7 @@
             from {
                 transform: translateZ(0) scale(1.05);
             }
+
             to {
                 transform: translateZ(0) scale(0.98);
             }
@@ -494,7 +521,7 @@
         }
 
         @media (max-width: 720px) {
-            .mockup-row {
+            .mockup-row-phones {
                 flex-direction: column;
             }
 
@@ -504,6 +531,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="stage">
         <div class="ambient one"></div>
@@ -525,15 +553,18 @@
                         <span class="hero-dot"></span>
                         Онлайн-версия
                     </div>
-                    <h1 class="hero-title">Мобильное<br><span class="hero-accent">приложение<br><span class="hero-subline">ПУСК</span></span></h1>
-                    <p class="hero-sub">Инструмент для работы инспектора непосредственно на объекте строительного контроля.</p>
+                    <h1 class="hero-title">Мобильное<br><span class="hero-accent">приложение<br><span
+                                class="hero-subline">ПУСК</span></span></h1>
+                    <p class="hero-sub">Инструмент для работы инспектора непосредственно на объекте строительного
+                        контроля.</p>
                 </div>
                 <div class="mockup">
                     <div class="mockup-item">
-                        <div class="badge">Главный экран</div>
+                        <div class="label">Главный экран</div>
                         <div class="phone-mockup">
                             <div class="phone-notch"></div>
-                            <video src="screen_main.mp4" poster="screen_main.png" autoplay loop muted playsinline preload="auto"></video>
+                            <video src="screen_main.mp4" poster="screen_main.png" autoplay loop muted playsinline
+                                preload="auto"></video>
                         </div>
                     </div>
                 </div>
@@ -551,7 +582,7 @@
                 </div>
                 <div class="mockup">
                     <div class="mockup-item">
-                        <div class="badge">Видео</div>
+                        <div class="label">Видео</div>
                         <div class="phone-mockup">
                             <div class="phone-notch"></div>
                             <video src="screencast.mp4" autoplay loop muted playsinline preload="auto"></video>
@@ -572,10 +603,11 @@
                 </div>
                 <div class="mockup">
                     <div class="mockup-item">
-                        <div class="badge">Работа в поле</div>
+                        <div class="label">Работа в поле</div>
                         <div class="phone-mockup">
                             <div class="phone-notch"></div>
-                            <video src="screen_field_work.mp4" poster="screen_field_work.png" autoplay loop muted playsinline preload="auto"></video>
+                            <video src="screen_field_work.mp4" poster="screen_field_work.png" autoplay loop muted
+                                playsinline preload="auto"></video>
                         </div>
                     </div>
                 </div>
@@ -593,10 +625,11 @@
                 </div>
                 <div class="mockup">
                     <div class="mockup-item">
-                        <div class="badge">Список объектов</div>
+                        <div class="label">Список объектов</div>
                         <div class="phone-mockup">
                             <div class="phone-notch"></div>
-                            <video src="screen_objects.mp4" poster="screen_objects.png" autoplay loop muted playsinline preload="auto"></video>
+                            <video src="screen_objects.mp4" poster="screen_objects.png" autoplay loop muted playsinline
+                                preload="auto"></video>
                         </div>
                     </div>
                 </div>
@@ -614,10 +647,11 @@
                 </div>
                 <div class="mockup">
                     <div class="mockup-item">
-                        <div class="badge">Список проверок</div>
+                        <div class="label">Список проверок</div>
                         <div class="phone-mockup">
                             <div class="phone-notch"></div>
-                            <video src="screen_checks_list.mp4" poster="screen_checks_list.png" autoplay loop muted playsinline preload="auto"></video>
+                            <video src="screen_checks_list.mp4" poster="screen_checks_list.png" autoplay loop muted
+                                playsinline preload="auto"></video>
                         </div>
                     </div>
                 </div>
@@ -635,10 +669,11 @@
                 </div>
                 <div class="mockup">
                     <div class="mockup-item">
-                        <div class="badge">Список нарушений</div>
+                        <div class="label">Список нарушений</div>
                         <div class="phone-mockup">
                             <div class="phone-notch"></div>
-                            <video src="screen_violations_list.mp4" poster="screen_violations_list.png" autoplay loop muted playsinline preload="auto"></video>
+                            <video src="screen_violations_list.mp4" poster="screen_violations_list.png" autoplay loop
+                                muted playsinline preload="auto"></video>
                         </div>
                     </div>
                 </div>
@@ -656,10 +691,11 @@
                 </div>
                 <div class="mockup">
                     <div class="mockup-item">
-                        <div class="badge">Карточка</div>
+                        <div class="label">Карточка</div>
                         <div class="phone-mockup">
                             <div class="phone-notch"></div>
-                            <video src="screen_violation.mp4" poster="screen_violation.png" autoplay loop muted playsinline preload="auto"></video>
+                            <video src="screen_violation.mp4" poster="screen_violation.png" autoplay loop muted
+                                playsinline preload="auto"></video>
                         </div>
                     </div>
                 </div>
@@ -678,22 +714,17 @@
                 </div>
                 <div class="mockup">
                     <div class="mockup-row">
-                        <div class="mockup-item">
-                            <div class="badge">Галерея</div>
+                        <div class="label">Фотофиксация</div>
+                        <div class="mockup-row-phones">
                             <div class="phone-mockup">
                                 <div class="phone-notch"></div>
                                 <img src="screen_photos.png" alt="Галерея фотоматериалов">
                             </div>
-                        </div>
-                        <div class="mockup-item">
-                            <div class="badge">Камера</div>
                             <div class="phone-mockup is-main">
                                 <div class="phone-notch"></div>
-                                <video src="screen_camera.mp4" poster="screen_camera.png" autoplay loop muted playsinline preload="auto"></video>
+                                <video src="screen_camera.mp4" poster="screen_camera.png" autoplay loop muted
+                                    playsinline preload="auto"></video>
                             </div>
-                        </div>
-                        <div class="mockup-item">
-                            <div class="badge">Редактор</div>
                             <div class="phone-mockup">
                                 <div class="phone-notch"></div>
                                 <img src="screen_editor.png" alt="Редактор">
@@ -715,18 +746,17 @@
                 </div>
                 <div class="mockup">
                     <div class="mockup-row">
-                        <div class="mockup-item">
-                            <div class="badge">Документы</div>
+                        <div class="label">Документы и уведомления</div>
+                        <div class="mockup-row-phones">
                             <div class="phone-mockup is-main">
                                 <div class="phone-notch"></div>
-                                <video src="screen_documents.mp4" poster="screen_documents.png" autoplay loop muted playsinline preload="auto"></video>
+                                <video src="screen_documents.mp4" poster="screen_documents.png" autoplay loop muted
+                                    playsinline preload="auto"></video>
                             </div>
-                        </div>
-                        <div class="mockup-item">
-                            <div class="badge">Уведомления</div>
                             <div class="phone-mockup">
                                 <div class="phone-notch"></div>
-                                <video src="screen_notifications.mp4" poster="screen_notifications.png" autoplay loop muted playsinline preload="auto"></video>
+                                <video src="screen_notifications.mp4" poster="screen_notifications.png" autoplay loop
+                                    muted playsinline preload="auto"></video>
                             </div>
                         </div>
                     </div>
@@ -820,4 +850,5 @@
         });
     </script>
 </body>
+
 </html>
