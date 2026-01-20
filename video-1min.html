@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>АС "ПУСК" — видео на 1 минуту</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;600;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/demo4.css">
+    <style>
+        :root {
+            --ink: #0b1220;
+            --ink-soft: #334155;
+            --accent: #4661eb;
+            --accent-2: #7b8dff;
+            --accent-3: #f59e0b;
+            --bg-1: #f8fbff;
+            --bg-2: #eef6ff;
+            --bg-3: #fff7e6;
+            --surface: rgba(255, 255, 255, 0.78);
+            --surface-border: rgba(148, 163, 184, 0.4);
+            --shadow-strong: 0 35px 90px rgba(15, 23, 42, 0.22);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: "IBM Plex Sans", sans-serif;
+            color: var(--ink);
+            letter-spacing: -0.01em;
+            background:
+                radial-gradient(1200px 700px at 10% 12%, rgba(70, 97, 235, 0.18) 0%, transparent 60%),
+                radial-gradient(900px 600px at 90% 85%, rgba(251, 191, 36, 0.2) 0%, transparent 62%),
+                linear-gradient(120deg, var(--bg-1) 0%, var(--bg-2) 45%, var(--bg-1) 100%);
+        }
+
+        .stage {
+            position: relative;
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .stage::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(15, 23, 42, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(15, 23, 42, 0.06) 1px, transparent 1px);
+            background-size: 120px 120px;
+            opacity: 0.4;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .stage::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.7' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='0.22'/%3E%3C/svg%3E");
+            opacity: 0.35;
+            mix-blend-mode: soft-light;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .ambient {
+            position: absolute;
+            border-radius: 999px;
+            filter: blur(80px);
+            opacity: 0.7;
+            z-index: 0;
+        }
+
+        .ambient.one {
+            width: 540px;
+            height: 540px;
+            top: -18%;
+            left: -10%;
+            background: radial-gradient(circle, rgba(125, 211, 252, 0.6) 0%, transparent 70%);
+        }
+
+        .ambient.two {
+            width: 640px;
+            height: 640px;
+            bottom: -22%;
+            right: -12%;
+            background: radial-gradient(circle, rgba(253, 230, 138, 0.55) 0%, transparent 70%);
+        }
+
+        .ambient.three {
+            width: 360px;
+            height: 360px;
+            top: 16%;
+            right: 18%;
+            background: radial-gradient(circle, rgba(187, 247, 208, 0.55) 0%, transparent 70%);
+        }
+
+        .frame {
+            position: relative;
+            width: min(94vw, 1720px);
+            height: min(92vh, 960px);
+            margin: 0 auto;
+            padding: clamp(24px, 4vw, 48px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 2;
+        }
+
+        .brand {
+            position: absolute;
+            top: clamp(18px, 3vw, 36px);
+            left: clamp(20px, 4vw, 48px);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 8px 14px;
+            border-radius: 14px;
+            background: var(--surface);
+            border: 1px solid var(--surface-border);
+            box-shadow: 0 12px 30px rgba(15, 23, 42, 0.1);
+            backdrop-filter: blur(10px);
+            z-index: 3;
+        }
+
+        .brand img {
+            height: 28px;
+            width: auto;
+        }
+
+        .brand-name {
+            font-family: "Unbounded", sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            letter-spacing: 0.02em;
+            color: var(--ink);
+        }
+
+        .brand-sub {
+            font-size: 0.75rem;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+            color: rgba(51, 65, 85, 0.75);
+            margin-top: 2px;
+        }
+
+        .scene {
+            position: absolute;
+            inset: 0;
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+            align-items: center;
+            gap: clamp(12px, 2.6vw, 52px);
+            opacity: 0;
+            transform: translateY(18px) scale(0.985);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+            z-index: 1;
+        }
+
+        .scene.is-active {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+            z-index: 4;
+        }
+
+        .scene.reverse .copy {
+            order: 2;
+            justify-self: start;
+        }
+
+        .scene.reverse .mockup {
+            order: 1;
+            justify-self: end;
+        }
+
+        .scene.center {
+            grid-template-columns: 1fr;
+            text-align: center;
+            justify-items: center;
+        }
+
+        .copy {
+            max-width: 560px;
+            justify-self: end;
+        }
+
+        .kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(70, 97, 235, 0.12);
+            border: 1px solid rgba(70, 97, 235, 0.25);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.26em;
+            text-transform: uppercase;
+            color: #0f172a;
+            margin-bottom: 18px;
+        }
+
+        .kicker::before {
+            content: "";
+            width: 7px;
+            height: 7px;
+            border-radius: 999px;
+            background: var(--accent);
+            box-shadow: 0 0 12px rgba(70, 97, 235, 0.45);
+        }
+
+        .headline {
+            font-family: "Unbounded", sans-serif;
+            font-weight: 700;
+            font-size: clamp(2rem, 3.4vw, 3.5rem);
+            line-height: 1.08;
+            color: var(--ink);
+            letter-spacing: -0.02em;
+        }
+
+        .sub {
+            margin-top: 14px;
+            font-size: clamp(1rem, 1.25vw, 1.3rem);
+            color: var(--ink-soft);
+            line-height: 1.55;
+        }
+
+        .scene-hero .copy {
+            max-width: 560px;
+        }
+
+        .hero-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(70, 97, 235, 0.12);
+            border: 1px solid rgba(70, 97, 235, 0.25);
+            color: #0f172a;
+            font-size: 0.75rem;
+            font-weight: 700;
+            margin-bottom: 18px;
+        }
+
+        .hero-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 999px;
+            background: var(--accent);
+        }
+
+        .hero-title {
+            font-family: "Unbounded", sans-serif;
+            font-weight: 700;
+            font-size: clamp(2.6rem, 4vw, 4rem);
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin: 0;
+        }
+
+        .hero-accent {
+            background: linear-gradient(120deg, #4661eb 0%, #6f82ff 55%, #8aa7ff 100%);
+            -webkit-background-clip: text;
+            color: transparent;
+        }
+
+        .hero-subline {
+            display: inline-block;
+            margin-top: 0.15em;
+        }
+
+        .hero-sub {
+            margin-top: 18px;
+            font-size: clamp(1rem, 1.25vw, 1.3rem);
+            color: #475569;
+            line-height: 1.6;
+            max-width: 480px;
+        }
+
+        .chip-row {
+            margin-top: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(15, 23, 42, 0.04);
+            border: 1px solid rgba(15, 23, 42, 0.12);
+            color: #0f172a;
+            font-size: 0.7rem;
+            font-weight: 600;
+        }
+
+        .mockup {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            justify-self: start;
+        }
+
+        .mockup-item {
+            position: relative;
+        }
+
+        .mockup-item,
+        .phone-mockup {
+            transform-origin: center center;
+            backface-visibility: hidden;
+            transform-style: preserve-3d;
+            will-change: transform;
+        }
+
+        .phone-mockup img,
+        .phone-mockup video {
+            backface-visibility: hidden;
+            transform: translateZ(0);
+        }
+
+        .badge {
+            position: absolute;
+            top: -16px;
+            right: -4px;
+            z-index: 6;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: linear-gradient(135deg, rgba(70, 97, 235, 0.95), rgba(111, 130, 255, 0.95));
+            border: 1px solid rgba(255, 255, 255, 0.35);
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: #f8fafc;
+            box-shadow: 0 12px 30px rgba(70, 97, 235, 0.32), 0 4px 12px rgba(15, 23, 42, 0.18);
+            text-shadow: 0 2px 8px rgba(15, 23, 42, 0.35);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            backdrop-filter: blur(8px);
+        }
+
+        .mockup .phone-mockup {
+            width: clamp(240px, 26vw, 320px) !important;
+            height: clamp(460px, 70vh, 620px) !important;
+            border-width: 7px !important;
+            border-radius: 36px !important;
+            cursor: default !important;
+            border-color: #0b1220 !important;
+            background: #0b1220;
+            box-shadow: var(--shadow-strong), 0 0 0 1px rgba(70, 97, 235, 0.25);
+            transition: none;
+            z-index: 1;
+        }
+
+        .mockup-row {
+            display: flex;
+            align-items: center;
+            gap: clamp(16px, 2.5vw, 32px);
+        }
+
+        .mockup-row .phone-mockup {
+            width: clamp(190px, 20vw, 250px) !important;
+            height: clamp(360px, 52vh, 480px) !important;
+            border-width: 6px !important;
+            border-color: #0b1220 !important;
+        }
+
+        .mockup-row .phone-mockup.is-main {
+            width: clamp(210px, 22vw, 280px) !important;
+            height: clamp(390px, 56vh, 520px) !important;
+        }
+
+        .phone-mockup:hover {
+            transform: none !important;
+            box-shadow: var(--shadow-strong) !important;
+        }
+
+        .scene.is-active[data-zoom="in"] .phone-mockup {
+            animation: slowZoomIn var(--scene-duration) ease-in-out both;
+        }
+
+        .scene.is-active[data-zoom="out"] .phone-mockup {
+            animation: slowZoomOut var(--scene-duration) ease-in-out both;
+        }
+
+        @keyframes slowZoomIn {
+            from {
+                transform: translateZ(0) scale(0.98);
+            }
+            to {
+                transform: translateZ(0) scale(1.05);
+            }
+        }
+
+        @keyframes slowZoomOut {
+            from {
+                transform: translateZ(0) scale(1.05);
+            }
+            to {
+                transform: translateZ(0) scale(0.98);
+            }
+        }
+
+        .progress {
+            position: absolute;
+            left: 50%;
+            bottom: clamp(18px, 4vw, 32px);
+            transform: translateX(-50%);
+            width: min(68vw, 760px);
+            height: 4px;
+            background: rgba(15, 23, 42, 0.12);
+            border-radius: 999px;
+            overflow: hidden;
+            z-index: 3;
+        }
+
+        .progress-fill {
+            width: 0%;
+            height: 100%;
+            background: linear-gradient(90deg, #4661eb, #6f82ff, #8aa7ff);
+            transition: width 0.1s linear;
+        }
+
+        .scene.center .copy {
+            margin: 0 auto;
+        }
+
+        .closing-tile {
+            width: 98px;
+            height: 98px;
+            border-radius: 28px;
+            background: linear-gradient(135deg, #4661eb 0%, #6f82ff 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            box-shadow: 0 20px 50px rgba(70, 97, 235, 0.35);
+        }
+
+        .closing-tile img {
+            width: 52px;
+            height: 52px;
+            object-fit: contain;
+            filter: brightness(0) invert(1);
+        }
+
+        .closing-meta {
+            margin-top: 18px;
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .closing-meta .chip {
+            background: rgba(20, 184, 166, 0.12);
+            border-color: rgba(20, 184, 166, 0.2);
+            color: #0f766e;
+        }
+
+        @media (max-width: 1080px) {
+            .scene {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .copy {
+                margin: 0 auto;
+                justify-self: center;
+            }
+
+            .mockup {
+                justify-self: center;
+            }
+
+            .scene.reverse .copy,
+            .scene.reverse .mockup {
+                order: unset;
+            }
+
+            .chip-row {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .mockup-row {
+                flex-direction: column;
+            }
+
+            .progress {
+                width: 80vw;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stage">
+        <div class="ambient one"></div>
+        <div class="ambient two"></div>
+        <div class="ambient three"></div>
+
+        <header class="brand">
+            <img src="logo.png" alt="АС ПУСК">
+            <div>
+                <div class="brand-name">АС "ПУСК"</div>
+                <div class="brand-sub">мобильное приложение</div>
+            </div>
+        </header>
+
+        <div class="frame">
+            <section class="scene scene-hero is-active" data-duration="6" data-zoom="in">
+                <div class="copy">
+                    <div class="hero-pill">
+                        <span class="hero-dot"></span>
+                        Онлайн-версия
+                    </div>
+                    <h1 class="hero-title">Мобильное<br><span class="hero-accent">приложение<br><span class="hero-subline">ПУСК</span></span></h1>
+                    <p class="hero-sub">Инструмент для работы инспектора непосредственно на объекте строительного контроля.</p>
+                </div>
+                <div class="mockup">
+                    <div class="mockup-item">
+                        <div class="badge">Главный экран</div>
+                        <div class="phone-mockup">
+                            <div class="phone-notch"></div>
+                            <video src="screen_main.mp4" poster="screen_main.png" autoplay loop muted playsinline preload="auto"></video>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="scene reverse" data-duration="6" data-zoom="out">
+                <div class="copy">
+                    <div class="kicker">Динамика</div>
+                    <div class="headline">Сценарий в движении</div>
+                    <div class="sub">Никаких слов — только реальная работа приложения.</div>
+                    <div class="chip-row">
+                        <span class="chip">Скринкаст</span>
+                        <span class="chip">Живой интерфейс</span>
+                    </div>
+                </div>
+                <div class="mockup">
+                    <div class="mockup-item">
+                        <div class="badge">Видео</div>
+                        <div class="phone-mockup">
+                            <div class="phone-notch"></div>
+                            <video src="screencast.mp4" autoplay loop muted playsinline preload="auto"></video>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="scene" data-duration="6" data-zoom="in">
+                <div class="copy">
+                    <div class="kicker">Полевой режим</div>
+                    <div class="headline">Инспектор не привязан к офису</div>
+                    <div class="sub">Все действия фиксируются сразу на объекте.</div>
+                    <div class="chip-row">
+                        <span class="chip">Экономия времени</span>
+                        <span class="chip">Без дублей</span>
+                    </div>
+                </div>
+                <div class="mockup">
+                    <div class="mockup-item">
+                        <div class="badge">Работа в поле</div>
+                        <div class="phone-mockup">
+                            <div class="phone-notch"></div>
+                            <video src="screen_field_work.mp4" poster="screen_field_work.png" autoplay loop muted playsinline preload="auto"></video>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="scene reverse" data-duration="5" data-zoom="out">
+                <div class="copy">
+                    <div class="kicker">Объекты</div>
+                    <div class="headline">Реестр всегда под рукой</div>
+                    <div class="sub">Быстрый доступ к списку объектов контроля.</div>
+                    <div class="chip-row">
+                        <span class="chip">ОКС</span>
+                        <span class="chip">Быстрый поиск</span>
+                    </div>
+                </div>
+                <div class="mockup">
+                    <div class="mockup-item">
+                        <div class="badge">Список объектов</div>
+                        <div class="phone-mockup">
+                            <div class="phone-notch"></div>
+                            <video src="screen_objects.mp4" poster="screen_objects.png" autoplay loop muted playsinline preload="auto"></video>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="scene" data-duration="5" data-zoom="in">
+                <div class="copy">
+                    <div class="kicker">Проверки</div>
+                    <div class="headline">Старт в один тап</div>
+                    <div class="sub">Открывайте и ведите проверки прямо в приложении.</div>
+                    <div class="chip-row">
+                        <span class="chip">Контроль</span>
+                        <span class="chip">Статусы</span>
+                    </div>
+                </div>
+                <div class="mockup">
+                    <div class="mockup-item">
+                        <div class="badge">Список проверок</div>
+                        <div class="phone-mockup">
+                            <div class="phone-notch"></div>
+                            <video src="screen_checks_list.mp4" poster="screen_checks_list.png" autoplay loop muted playsinline preload="auto"></video>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="scene reverse" data-duration="5" data-zoom="out">
+                <div class="copy">
+                    <div class="kicker">Нарушения</div>
+                    <div class="headline">Фиксация дефектов</div>
+                    <div class="sub">Список нарушений и быстрый доступ к деталям.</div>
+                    <div class="chip-row">
+                        <span class="chip">Контроль качества</span>
+                        <span class="chip">Факты</span>
+                    </div>
+                </div>
+                <div class="mockup">
+                    <div class="mockup-item">
+                        <div class="badge">Список нарушений</div>
+                        <div class="phone-mockup">
+                            <div class="phone-notch"></div>
+                            <video src="screen_violations_list.mp4" poster="screen_violations_list.png" autoplay loop muted playsinline preload="auto"></video>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="scene" data-duration="6" data-zoom="in">
+                <div class="copy">
+                    <div class="kicker">Карточка нарушения</div>
+                    <div class="headline">Поля, сроки, ответственность</div>
+                    <div class="sub">Минимум шагов, максимум фиксации на месте.</div>
+                    <div class="chip-row">
+                        <span class="chip">Описание</span>
+                        <span class="chip">Срок устранения</span>
+                    </div>
+                </div>
+                <div class="mockup">
+                    <div class="mockup-item">
+                        <div class="badge">Карточка</div>
+                        <div class="phone-mockup">
+                            <div class="phone-notch"></div>
+                            <video src="screen_violation.mp4" poster="screen_violation.png" autoplay loop muted playsinline preload="auto"></video>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="scene reverse" data-duration="7" data-zoom="out">
+                <div class="copy">
+                    <div class="kicker">Фотофиксация</div>
+                    <div class="headline">Камера, галерея, редактор</div>
+                    <div class="sub">Доказательства в один поток — от съемки до правки.</div>
+                    <div class="chip-row">
+                        <span class="chip">Фото</span>
+                        <span class="chip">Редактор</span>
+                        <span class="chip">История</span>
+                    </div>
+                </div>
+                <div class="mockup">
+                    <div class="mockup-row">
+                        <div class="mockup-item">
+                            <div class="badge">Галерея</div>
+                            <div class="phone-mockup">
+                                <div class="phone-notch"></div>
+                                <img src="screen_photos.png" alt="Галерея фотоматериалов">
+                            </div>
+                        </div>
+                        <div class="mockup-item">
+                            <div class="badge">Камера</div>
+                            <div class="phone-mockup is-main">
+                                <div class="phone-notch"></div>
+                                <video src="screen_camera.mp4" poster="screen_camera.png" autoplay loop muted playsinline preload="auto"></video>
+                            </div>
+                        </div>
+                        <div class="mockup-item">
+                            <div class="badge">Редактор</div>
+                            <div class="phone-mockup">
+                                <div class="phone-notch"></div>
+                                <img src="screen_editor.png" alt="Редактор">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="scene" data-duration="7" data-zoom="in">
+                <div class="copy">
+                    <div class="kicker">Документы и уведомления</div>
+                    <div class="headline">Всё под рукой</div>
+                    <div class="sub">Оперативные документы и мгновенные статусы.</div>
+                    <div class="chip-row">
+                        <span class="chip">Документы</span>
+                        <span class="chip">Уведомления</span>
+                    </div>
+                </div>
+                <div class="mockup">
+                    <div class="mockup-row">
+                        <div class="mockup-item">
+                            <div class="badge">Документы</div>
+                            <div class="phone-mockup is-main">
+                                <div class="phone-notch"></div>
+                                <video src="screen_documents.mp4" poster="screen_documents.png" autoplay loop muted playsinline preload="auto"></video>
+                            </div>
+                        </div>
+                        <div class="mockup-item">
+                            <div class="badge">Уведомления</div>
+                            <div class="phone-mockup">
+                                <div class="phone-notch"></div>
+                                <video src="screen_notifications.mp4" poster="screen_notifications.png" autoplay loop muted playsinline preload="auto"></video>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="scene center" data-duration="7" data-zoom="in">
+                <div class="copy">
+                    <div class="closing-tile">
+                        <img src="logo.png" alt="АС ПУСК">
+                    </div>
+                    <div class="headline">Готово к работе</div>
+                    <div class="sub">Мобильное приложение АС "ПУСК" для контроля на объекте.</div>
+                    <div class="closing-meta">
+                        <span class="chip">Сейчас доступно</span>
+                        <span class="chip">1 минута — и вы всё видите</span>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <div class="progress">
+            <div class="progress-fill" id="progress"></div>
+        </div>
+    </div>
+
+    <script>
+        const scenes = Array.from(document.querySelectorAll(".scene"));
+        const progress = document.getElementById("progress");
+        const durations = scenes.map((scene) => Number(scene.dataset.duration) || 6);
+        const totalDuration = durations.reduce((sum, value) => sum + value, 0);
+        const runOnce = new URLSearchParams(window.location.search).has("once");
+        let currentIndex = 0;
+        let timelineStart = null;
+        let sceneStart = null;
+
+        const resetAnimations = (scene) => {
+            const targets = scene.querySelectorAll(".phone-mockup");
+            targets.forEach((target) => {
+                target.style.animation = "none";
+                void target.offsetHeight;
+                target.style.animation = "";
+            });
+        };
+
+        const activateScene = (index) => {
+            scenes.forEach((scene, sceneIndex) => {
+                scene.classList.toggle("is-active", sceneIndex === index);
+            });
+            const activeScene = scenes[index];
+            activeScene.style.setProperty("--scene-duration", `${durations[index]}s`);
+            resetAnimations(activeScene);
+        };
+
+        const tick = (now) => {
+            if (timelineStart === null) {
+                timelineStart = now;
+                sceneStart = now;
+                activateScene(currentIndex);
+            }
+
+            const elapsedScene = (now - sceneStart) / 1000;
+            const currentDuration = durations[currentIndex];
+            if (elapsedScene >= currentDuration) {
+                currentIndex += 1;
+                if (currentIndex >= scenes.length) {
+                    if (runOnce) {
+                        progress.style.width = "100%";
+                        return;
+                    }
+                    currentIndex = 0;
+                    timelineStart = now;
+                }
+                sceneStart = now;
+                activateScene(currentIndex);
+            }
+
+            const elapsedTotal = (now - timelineStart) / 1000;
+            const percent = Math.min(elapsedTotal / totalDuration, 1);
+            progress.style.width = `${percent * 100}%`;
+
+            requestAnimationFrame(tick);
+        };
+
+        requestAnimationFrame(tick);
+
+        document.addEventListener("keydown", (event) => {
+            if (event.code === "KeyR") {
+                window.location.reload();
+            }
+        });
+    </script>
+</body>
+</html>
